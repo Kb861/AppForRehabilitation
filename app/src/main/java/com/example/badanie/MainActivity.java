@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_ID)
     void onClick(View view) {
-        Intent intent = new Intent(this, StartActivity.class);
+        Intent intent = new Intent(this, StopwatchActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
