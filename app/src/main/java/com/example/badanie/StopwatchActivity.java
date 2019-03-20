@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,9 @@ public class StopwatchActivity extends AppCompatActivity {
     @BindView(R.id.btn_Start)
     Button btn_Start;
 
+    @BindView(R.id.btn_Go)
+    Button btn_Go;
+
     @BindView(R.id.btn_Next)
     Button btn_Next;
 
@@ -42,6 +46,9 @@ public class StopwatchActivity extends AppCompatActivity {
 
     @BindView(R.id.sv_lap)
     ScrollView sv_lap;
+
+    @BindView(R.id.close)
+    ImageView close;
 
     int mLapCounter = 1;
 
@@ -61,6 +68,14 @@ public class StopwatchActivity extends AppCompatActivity {
             ThreadChrono = null;
             Chrono = null;
         }
+    }
+
+    @OnClick(R.id.close)
+    void onClickClose(View view) {
+        Intent intent = new Intent(this, SummaryActivity.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     @OnClick(R.id.btn_Next)
@@ -93,10 +108,28 @@ public class StopwatchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stopwatch);
         ButterKnife.bind(this);
         Context = this;
-        tasks.add("Zadanie1");
+        tasks.add("Zadanie1fxhfhfgdjfdgjdfhftjfdtjfthfhf");
         tasks.add("Zadanie2");
         tasks.add("Zadanie3");
-        TVName.setText(tasks.get(0));
+
+        final boolean clicked=false;
+btn_Go.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        for(int i=0;i<tasks.size();i++){
+            if(clicked==true) {
+                TVName.setText(tasks.get(i));
+            }
+
+        }
+    }
+});
+
+
+
+
+
+
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
