@@ -112,18 +112,19 @@ public class StopwatchActivity extends AppCompatActivity {
         tasks.add("Zadanie2");
         tasks.add("Zadanie3");
 
-        final boolean clicked=false;
-btn_Go.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        for(int i=0;i<tasks.size();i++){
-            if(clicked==true) {
-                TVName.setText(tasks.get(i));
-            }
+        TVName.setText(tasks.get(0));
+        for(int i=1;i<tasks.size();i++) {
+            TVName.setText(tasks.get(i));
 
         }
-    }
-});
+
+
+
+
+
+
+
+
 
 
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -12,7 +13,8 @@ import butterknife.OnClick;
 
 public class StartActivity extends AppCompatActivity {
 
-
+    @BindView(R.id.EtID)
+    EditText EtID;
 
     @BindView(R.id.btn_ID)
     Button btn_ID;
@@ -23,6 +25,10 @@ public class StartActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
+
+
+  
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
