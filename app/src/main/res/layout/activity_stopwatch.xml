@@ -10,7 +10,7 @@
     tools:context=".StopwatchActivity">
 
     <TextView
-        android:id="@+id/TextViewName"
+        android:id="@+id/TVName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
