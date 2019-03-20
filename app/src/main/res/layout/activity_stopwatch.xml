@@ -27,9 +27,11 @@
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
         android:gravity="center"
-        android:text="Tutaj będzie czas"
+        android:text="00:00:00:000"
         android:textColor="@color/textColor"
         android:textSize="15dp" />
+
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -69,36 +71,26 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:layout_weight="6"
+        android:orientation="vertical">
 
+        <ScrollView
+            android:id="@+id/sv_lap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_Close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/frame"
-            android:text="Zakończ"
-            android:textColor="@color/textColor" />
+            <EditText
+                android:id="@+id/et_laps"
+                android:cursorVisible="false"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:allowUndo="false"
+                android:textColor="#ff0000"/>
 
-        <Button
-            android:id="@+id/btn_Return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/btn_Close"
-            android:layout_alignBottom="@+id/btn_Close"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="17dp"
-            android:background="@drawable/frame"
-            android:text="Powrót"
-            android:textColor="@color/textColor" />
-    </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>
