@@ -77,7 +77,6 @@ public class Chronometer implements Runnable {
     public void run() {
         while(mIsRunning) {
 
-
             long since = System.currentTimeMillis() - mStartTime;
 
             int seconds = (int) (since / 1000) % 60;

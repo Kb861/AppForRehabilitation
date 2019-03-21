@@ -41,6 +41,9 @@ public class StopwatchActivity extends AppCompatActivity {
     @BindView(R.id.TVName)
     TextView TVName;
 
+    @BindView(R.id.tvSaveTimeLap)
+    TextView tvSaveTimeLap;
+
     @BindView(R.id.et_laps)
     EditText et_laps;
 
@@ -52,6 +55,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
     private int count=0;
     int mLapCounter = 1;
+    public String saveLap;
 
     Chronometer Chrono;
 
@@ -88,13 +92,11 @@ public class StopwatchActivity extends AppCompatActivity {
     @OnClick(R.id.btn_Next)
     void onClickNext(View view) {
         if (Chrono == null) {
-            Toast.makeText(Context
-                    , "nic", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Context, "nic", Toast.LENGTH_SHORT).show();
             return; //do nothing!
         }
-
         //we just simply copy the current text of tv_timer and append it to et_laps
-        et_laps.append("LAP " + String.valueOf(mLapCounter++)
+       et_laps.append("LAP " + String.valueOf(mLapCounter++)
                 + "   " + TextViewTime.getText() + "\n");
 
         //scroll to the bottom of et_laps
@@ -125,6 +127,9 @@ public class StopwatchActivity extends AppCompatActivity {
                 if(count<tasks.size())
                 {
                     TVName.setText(tasks.get(count+1));
+                    //wez lap
+                    et_laps.append("Task " + String.valueOf(mLapCounter++)
+                            + "   " + TextViewTime.getText() + "\n");
                 }
 
                 if(count==3)
