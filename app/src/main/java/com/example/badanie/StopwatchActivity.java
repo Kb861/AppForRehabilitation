@@ -26,8 +26,8 @@ import butterknife.OnClick;
 
 public class StopwatchActivity extends AppCompatActivity {
 
-    @BindView(R.id.btn_Start)
-    Button btn_Start;
+    @BindView(R.id.btn_Back)
+    Button btn_Back;
 
     @BindView(R.id.btn_Go)
     Button btn_Go;
@@ -60,10 +60,9 @@ public class StopwatchActivity extends AppCompatActivity {
 
     Context Context;
 
-    @OnClick(R.id.btn_Start)
+    @OnClick(R.id.btn_Back)
     void onClick(View view) {
         if (Chrono != null) {
-
             Chrono.stop();
             ThreadChrono.interrupt();
             ThreadChrono = null;
@@ -73,6 +72,13 @@ public class StopwatchActivity extends AppCompatActivity {
 
     @OnClick(R.id.close)
     void onClickClose(View view) {
+        if (Chrono != null) {
+
+            Chrono.stop();
+            ThreadChrono.interrupt();
+            ThreadChrono = null;
+            Chrono = null;
+        }
         Intent intent = new Intent(this, SummaryActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
