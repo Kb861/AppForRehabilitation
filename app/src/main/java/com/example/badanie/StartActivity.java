@@ -45,26 +45,5 @@ public class StartActivity extends AppCompatActivity {
     }
 
 
-    private List<Query> queryList = new ArrayList<>();
-    private void readData() {
-        InputStream is=getResources().openRawResource(R.raw.dane);
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8"))
-        );
-        String line="";
-        try {
-            while((line=reader.readLine()) !=null){
-                String[] token=line.split(",");
-                Query query=new Query();
-                query.setName(line);
-                queryList.add(query);
 
-                Log.d("MyActivity","Just created:"+query);
-            }
-        } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading data file on line" + line, e);
-            e.printStackTrace();
-        }
-
-    }
 }
