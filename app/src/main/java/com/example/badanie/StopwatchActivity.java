@@ -123,21 +123,20 @@ public class StopwatchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                count=count+1;
                 if(count<tasks.size())
                 {
-                    TVName.setText(tasks.get(count+1));
+                    TVName.setText(tasks.get(count));
 
                 }
 
 
                 if(count==tasks.size())
                 {
-
                     Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
                     startActivity(intent);
                 }
-                count=count+1;
+
 
             }
 
