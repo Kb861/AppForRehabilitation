@@ -132,6 +132,13 @@ public class StopwatchActivity extends AppCompatActivity {
                 }
 
                 if (count == tasks.size()) {
+                    if (Chrono != null) {
+
+                        Chrono.stop();
+                        ThreadChrono.interrupt();
+                        ThreadChrono = null;
+                        Chrono = null;
+                    }
                     Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
                     startActivity(intent);
                 }
