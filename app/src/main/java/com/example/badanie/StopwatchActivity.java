@@ -50,6 +50,7 @@ public class StopwatchActivity extends AppCompatActivity {
     @BindView(R.id.close)
     ImageView close;
 
+    private int count=0;
     int mLapCounter = 1;
 
     Chronometer Chrono;
@@ -112,11 +113,26 @@ public class StopwatchActivity extends AppCompatActivity {
         tasks.add("Zadanie2");
         tasks.add("Zadanie3");
 
-        TVName.setText(tasks.get(0));
-        for(int i=1;i<tasks.size();i++) {
-            TVName.setText(tasks.get(i));
+        btn_Go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count<tasks.size())
+                {
+                    TVName.setText(tasks.get(count+1));
+                }
 
-        }
+                if(count==3)
+                {
+
+                    Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
+                    startActivity(intent);
+                }
+
+                count=+1;
+
+            }
+
+        }       );
 
 
 
