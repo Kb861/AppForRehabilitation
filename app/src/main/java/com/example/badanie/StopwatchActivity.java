@@ -61,14 +61,13 @@ public class StopwatchActivity extends AppCompatActivity {
 
     private int count=0;
     int mLapCounter = 1;
-    public String saveLap;
 
     Chronometer Chrono;
-
-
     Thread ThreadChrono;
-
     Context Context;
+    //lista dla czasu poszczególnych zadań
+    public List<Query> taskTime=new ArrayList<>();
+
 
     @OnClick(R.id.btn_Back)
     void onClick(View view) {
@@ -107,6 +106,7 @@ public class StopwatchActivity extends AppCompatActivity {
             return; //do nothing!
         }
         //we just simply copy the current text of tv_timer and append it to et_laps
+
        et_laps.append("LAP " + String.valueOf(mLapCounter++)
                 + "   " + TextViewTime.getText() + "\n");
 
@@ -138,7 +138,6 @@ public class StopwatchActivity extends AppCompatActivity {
                 if (count < tasks.size()) {
 
                     TVName.setText(tasks.get(count));
-                    tvSaveTimeLap.setText(  TextViewTime.getText() );
 
 
                 }}
@@ -152,8 +151,14 @@ public class StopwatchActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 count = count + 1;
+                Query task=new Query();
+                task.setTime(String.valueOf(TextViewTime.getText()));
+                task.setTaskNumber(count+1);
+                taskTime.add(task);
                 if (count < tasks.size()) {
                     TVName.setText(tasks.get(count));
+                    tvSaveTimeLap.append("Zad " + String.valueOf(count)
+                    + "   " + TextViewTime.getText() + "\n");
                 }
                 if (count == tasks.size()) {
                     if (Chrono != null) {
@@ -203,6 +208,7 @@ public class StopwatchActivity extends AppCompatActivity {
             }
         });
     }
+
     //metoda wczytuje listę zadań (plik.csv)
     public List<String> tasks = new ArrayList<>();
     private void readData() {

@@ -2,20 +2,30 @@ package com.example.badanie;
 
 class Query {
 
-    public String getName() {
-        return name;
+    public String getTime() {
+        return time;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    private String name;
+    public int getTaskNumber() {
+        return taskNumber;
+    }
+
+    public void setTaskNumber(int taskNumber) {
+        this.taskNumber = taskNumber;
+    }
+
+    private String time;
+    private int taskNumber;
 
     @Override
     public String toString() {
         return "Query{" +
-                "name='" + name + '\'' +
+                "time='" + time + '\'' +
+                ", taskNumber=" + taskNumber +
                 '}';
     }
 }
