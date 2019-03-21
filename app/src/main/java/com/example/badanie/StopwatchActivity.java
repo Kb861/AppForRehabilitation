@@ -121,7 +121,19 @@ public class StopwatchActivity extends AppCompatActivity {
         tasks.add("Zadanie2");
         tasks.add("Zadanie3");
 
+        btn_Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count>0){
+                    count=count-1;
+                if (count < tasks.size()) {
+                    TVName.setText(tasks.get(count));
+
+                }}
+            }
+        });
         btn_Go.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
