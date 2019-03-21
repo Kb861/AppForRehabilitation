@@ -125,92 +125,20 @@ public class StopwatchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                count=count+1;
-                if(count<tasks.size())
-                {
+                count = count + 1;
+                if (count < tasks.size()) {
                     TVName.setText(tasks.get(count));
 
                 }
 
-
-                if(count==tasks.size())
-                {
+                if (count == tasks.size()) {
                     Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
                     startActivity(intent);
                 }
 
-                    Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
-                    startActivity(intent);
-                }
-
-
             }
 
-        }       );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-
-        //starttime
-        if (Chrono == null) {
-            //instantiate the chronometer
-            Chrono = new Chronometer(Context);
-            //run the chronometer on a separate thread
-            ThreadChrono = new Thread(Chrono);
-            ThreadChrono.start();
-
-            //start the chronometer!
-            Chrono.start();
-
-            //clear the perilously populated et_laps
-            et_laps.setText(""); //empty string!
-
-            //reset the lap counter
-            mLapCounter = 1;
-        }
-
-    }
-
-    public void updateTimerText(final String timeAsText) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                TextViewTime.setText(timeAsText);
-            }
         });
-    }
-
-
-}
-
-            }
-
-        }       );
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
