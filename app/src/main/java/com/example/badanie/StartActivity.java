@@ -36,8 +36,6 @@ public class StartActivity extends AppCompatActivity {
         startActivity(intent);
 
 
-
-
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

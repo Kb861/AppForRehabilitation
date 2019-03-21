@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnstart)
     void onClick(View view) {
-        Intent intent = new Intent(this, StopwatchActivity.class);
+        Intent intent = new Intent(this, StartActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
