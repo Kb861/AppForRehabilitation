@@ -18,14 +18,16 @@ public class SummaryActivity extends AppCompatActivity {
 
     @BindView(R.id.EtNotes)
     EditText EtNotes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         ButterKnife.bind(this);
-        Bundle przekazanedane = getIntent().getExtras();
-        String przekazanytekst = przekazanedane.getString("KEY");
-        EtNotes.setText(przekazanytekst);
+
+        Bundle dataFromStopwatchActivity = getIntent().getExtras();
+        String text = dataFromStopwatchActivity.getString("KEY");
+        EtNotes.setText(text);
 
     }
 }
