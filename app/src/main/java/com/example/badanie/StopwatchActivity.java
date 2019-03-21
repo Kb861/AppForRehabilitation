@@ -127,9 +127,7 @@ public class StopwatchActivity extends AppCompatActivity {
                 if(count<tasks.size())
                 {
                     TVName.setText(tasks.get(count+1));
-                    //wez lap
-                    et_laps.append("Task " + String.valueOf(mLapCounter++)
-                            + "   " + TextViewTime.getText() + "\n");
+                  
                 }
 
                 if(count==3)
