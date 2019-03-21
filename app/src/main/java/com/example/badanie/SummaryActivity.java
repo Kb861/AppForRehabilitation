@@ -13,15 +13,14 @@ import butterknife.ButterKnife;
  */
 
 public class SummaryActivity extends AppCompatActivity {
-    @BindView(R.id.nameid)
-    TextView nameid;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         ButterKnife.bind(this);
-        Bundle id = getIntent().getExtras();
-        String textID = id.getString("KEY");
-        nameid.setText(textID);
+
     }
 }

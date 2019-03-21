@@ -8,51 +8,73 @@
     android:background="@color/colorbackground"
     android:layout_gravity="center_horizontal"
     tools:context=".SummaryActivity">
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="100dp">
 
-    <TextView
+    <EditText
         android:id="@+id/TextViewID"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="52dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Tutaj będzie id pacjenta"
+        android:hint="Wprowadź ID pacjenta"
+        android:inputType="number"
         android:textColor="@color/textColor"
-        android:textSize="20dp" />
-    <TextView
-        android:id="@+id/nameid"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="id"
+        android:textColorHint="@color/textColor"
+        android:textColorLink="@color/textColor"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSaveID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSaveID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ok"
         android:textColor="@color/textColor"
-        android:textSize="20dp" />
+        android:background="@drawable/frame"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
 
 
     <EditText
-        android:id="@+id/EtID"
+        android:id="@+id/EtNotes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:hint="ID"
-        android:text="miejsce na notatki"
+        android:hint="Notatki"
+        android:textColorLink="@color/textColor"
+        android:textColorHint="@color/textColor"
         android:textColor="@color/textColor"
-        android:textSize="15dp"
+        android:textSize="25sp"
         android:visibility="visible" />
 
     <Button
-        android:id="@+id/btn_Return"
+        android:id="@+id/btn_Finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/frame"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/circle_button"
         android:gravity="center"
-        android:text="Zapisz wyniki"
+        android:text="Koniec"
+        android:textSize="20sp"
         android:textColor="@color/textColor" />
 
 

@@ -111,7 +111,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:allowUndo="false"
-                android:textColor="#ff0000"/>
+               android:editable="false"
+                android:textColor="@color/textColor"/>
 
         </ScrollView>
     </LinearLayout>

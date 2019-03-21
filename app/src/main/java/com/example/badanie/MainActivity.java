@@ -20,22 +20,19 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnstart)
     void onClick(View view) {
-        Intent intent = new Intent(this, StartActivity.class);
+        Intent intent = new Intent(this, StopwatchActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
-    public List<String> tasks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
-        tasks.add("Zadanie1");
-        tasks.add("Zadanie2");
-        tasks.add("Zadanie3");
+
 
 
 
