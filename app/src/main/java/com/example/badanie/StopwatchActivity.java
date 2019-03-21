@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -13,6 +14,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,29 +114,30 @@ public class StopwatchActivity extends AppCompatActivity {
         });
     }
 
-
-    public List<String> tasks = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stopwatch);
         ButterKnife.bind(this);
         Context = this;
-        tasks.add("Zadanie1fxhfhfgdjfdgjdfhftjfdtjfthfhf");
-        tasks.add("Zadanie2");
-        tasks.add("Zadanie3");
+        readData();
+        TVName.setText(tasks.get(0));
+
 
         btn_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(count>0){
                     count=count-1;
                 if (count < tasks.size()) {
+
                     TVName.setText(tasks.get(count));
 
                 }}
             }
+
+
         });
         btn_Go.setOnClickListener(new View.OnClickListener() {
 
@@ -140,9 +147,7 @@ public class StopwatchActivity extends AppCompatActivity {
                 count = count + 1;
                 if (count < tasks.size()) {
                     TVName.setText(tasks.get(count));
-
                 }
-
                 if (count == tasks.size()) {
                     if (Chrono != null) {
 
@@ -158,7 +163,6 @@ public class StopwatchActivity extends AppCompatActivity {
             }
 
         });
-
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -183,6 +187,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
     }
 
+
     public void updateTimerText(final String timeAsText) {
         runOnUiThread(new Runnable() {
             @Override
@@ -190,6 +195,26 @@ public class StopwatchActivity extends AppCompatActivity {
                 TextViewTime.setText(timeAsText);
             }
         });
+    }
+    //metoda wczytuje listę zadań (plik.csv)
+    public List<String> tasks = new ArrayList<>();
+    private void readData() {
+        InputStream is=getResources().openRawResource(R.raw.dane);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line="";
+        try {
+            while((line=reader.readLine()) !=null){
+                tasks.add(line);
+
+                Log.d("MyActivity","Just created:"+line);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading data file on line" + line, e);
+            e.printStackTrace();
+        }
+
     }
 
 
