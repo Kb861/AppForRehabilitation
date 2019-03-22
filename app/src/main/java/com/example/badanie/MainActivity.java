@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.btnstart)
     Button btnstart;
-
+// metoda startu przechodząca do kolejnej aktywności
     @OnClick(R.id.btnstart)
     void onClick(View view) {
         Intent intent = new Intent(this, StartActivity.class);

@@ -29,6 +29,7 @@ public class StartActivity extends AppCompatActivity {
     @BindView(R.id.btn_ID)
     Button btn_ID;
 
+    // metoda wczytująca i sprawdzająca id
     @OnClick(R.id.btn_ID)
     void onClick(View view) {
 
