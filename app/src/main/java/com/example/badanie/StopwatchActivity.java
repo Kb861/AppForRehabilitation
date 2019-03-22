@@ -90,10 +90,8 @@ public class StopwatchActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, SummaryActivity.class);
         Bundle bundle = new Bundle();
-        //intent.putExtras(bundle);
-
-        String wpisanyTekst = et_laps.getText().toString();
-        bundle.putString("KEY", wpisanyTekst);
+        String allLaps = et_laps.getText().toString();
+        bundle.putString("KEY", allLaps);
         intent.putExtras(bundle);
         startActivity(intent);
     }
