@@ -38,7 +38,7 @@ public class StartActivity extends AppCompatActivity {
 
         if ( finalValue >=101 && finalValue<=201 )
         {
-            Intent intent = new Intent(this, StopwatchActivity.class);
+            Intent intent = new Intent(this, CheckActivity.class);
             Intent intent2 = new Intent(StartActivity.this, SummaryActivity.class);
             Bundle bundle = new Bundle();
             intent.putExtras(bundle);
