@@ -39,9 +39,16 @@ public class StartActivity extends AppCompatActivity {
         if ( finalValue >=101 && finalValue<=201 )
         {
             Intent intent = new Intent(this, StopwatchActivity.class);
+            Intent intent2 = new Intent(StartActivity.this, SummaryActivity.class);
             Bundle bundle = new Bundle();
             intent.putExtras(bundle);
+
+          /*  String wpisaneID = EtID.getText().toString();
+            bundle.putString("KEY_ID", wpisaneID);
+            intent2.putExtras(bundle);*/
+
             startActivity(intent);
+
         }
         else{
             Toast.makeText(StartActivity.this, "Error wrong Id!", Toast.LENGTH_SHORT).show();
@@ -53,6 +60,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
     }
 
 
