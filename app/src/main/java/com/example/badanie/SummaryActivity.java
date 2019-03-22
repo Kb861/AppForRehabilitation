@@ -1,7 +1,12 @@
 package com.example.badanie;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -9,7 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,12 +39,35 @@ public class SummaryActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_Finish)
     Button btn_Finish;
+    private void isReadStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 3);
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+        }
+    }
+
+    private void isWriteStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         ButterKnife.bind(this);
+        isReadStoragePermissionGranted();
+
 
         Bundle dataFromStopwatchActivity = getIntent().getExtras();
         String text = dataFromStopwatchActivity.getString("KEY");
@@ -47,6 +79,24 @@ public class SummaryActivity extends AppCompatActivity {
 
     }
 
+    private void Save(String id, String dane) {
+        try {
+            File root = Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_DCIM);
+            File gpxfile = new File(root, id+".csv");
+            FileWriter writer = new FileWriter(gpxfile);
+
+            writer.append(dane);
+            writer.append('\n');
+            writer.flush();
+            writer.close();
+            Toast.makeText(SummaryActivity.this, "Success", Toast.LENGTH_SHORT).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(SummaryActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
     @OnClick(R.id.btn_Finish)
     void onClick(View view){
         if(EtNotes.length() > 250)
@@ -54,20 +104,23 @@ public class SummaryActivity extends AppCompatActivity {
             Toast.makeText(SummaryActivity.this, "Za długi komentarz! ", Toast.LENGTH_SHORT).show();
         }
         else{
-            String FILENAME = TextViewID.getText().toString() + ".csv";
+            /*String FILENAME = TextViewID.getText().toString() + ".csv";
             String entry = EtNotes.getText().toString();
             try{
                 FileOutputStream out  = openFileOutput(FILENAME, Context.MODE_APPEND);
-                    out.write(entry.getBytes());
+                out.write(entry.getBytes());
                 out.close();
             }catch (Exception e){
                 e.printStackTrace();
                 Toast.makeText(SummaryActivity.this, "Error saving file!", Toast.LENGTH_SHORT).show();
-            }
+            }*/
+            String entry = EtNotes.getText().toString();
+            Save("105",entry);
 
         }
 
     }
+
 
 
 
