@@ -49,11 +49,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_Finish)
     void onClick(View view){
-        if(EtNotes.length() > 250)
-        {
-            Toast.makeText(SummaryActivity.this, "Za długi komentarz! ", Toast.LENGTH_SHORT).show();
-        }
-        else{
+
             String FILENAME = TextViewID.getText().toString() + ".csv";
             String entry = EtNotes.getText().toString();
             try{
@@ -66,7 +62,7 @@ public class SummaryActivity extends AppCompatActivity {
                 Toast.makeText(SummaryActivity.this, "Error saving file!", Toast.LENGTH_SHORT).show();
             }
 
-        }
+
 
     }
 
