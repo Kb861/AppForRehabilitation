@@ -110,6 +110,7 @@ public class SummaryActivity extends AppCompatActivity {
                 FileOutputStream out  = openFileOutput(FILENAME, Context.MODE_APPEND);
                 out.write(entry.getBytes());
                 out.close();
+                Toast.makeText(SummaryActivity.this, "Zapisano ", Toast.LENGTH_SHORT).show();
             }catch (Exception e){
                 e.printStackTrace();
                 Toast.makeText(SummaryActivity.this, "Error saving file!", Toast.LENGTH_SHORT).show();
@@ -117,11 +118,6 @@ public class SummaryActivity extends AppCompatActivity {
             String entry = EtNotes.getText().toString();
             Save("105",entry);
 
-        }
-
     }
-
-
-
 
 }

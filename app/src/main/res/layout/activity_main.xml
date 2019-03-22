@@ -27,6 +27,8 @@
         android:layout_marginTop="80dp"
         android:gravity="center"
         android:hint="ID"
+        android:textSize="25sp"
+        android:textColorHint="@color/textColor"
         android:inputType="number"
         android:textColor="@color/textColor" />
 
