@@ -34,25 +34,34 @@ public class StartActivity extends AppCompatActivity {
     void onClick(View view) {
 
         String value= EtID.getText().toString();
-        int finalValue=Integer.parseInt(value);
-
-        if ( finalValue >=101 && finalValue<=201 )
+        if (!value.isEmpty())
         {
-            Intent intent = new Intent(this, CheckActivity.class);
-            Intent intent2 = new Intent(StartActivity.this, SummaryActivity.class);
-            Bundle bundle = new Bundle();
-            intent.putExtras(bundle);
+            int finalValue=Integer.parseInt(value);
+
+            if ( finalValue >=101 && finalValue<=201 )
+            {
+                Intent intent = new Intent(this, CheckActivity.class);
+                Intent intent2 = new Intent(StartActivity.this, SummaryActivity.class);
+                Bundle bundle = new Bundle();
+                intent.putExtras(bundle);
 
           /*  String wpisaneID = EtID.getText().toString();
             bundle.putString("KEY_ID", wpisaneID);
             intent2.putExtras(bundle);*/
 
-            startActivity(intent);
+                startActivity(intent);
+
+            }
+            else{
+                Toast.makeText(StartActivity.this, "Wprowadzono złe ID!", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(StartActivity.this, "Należy wprowadzić ID użytkownika!", Toast.LENGTH_SHORT).show();
 
         }
-        else{
-            Toast.makeText(StartActivity.this, "Error wrong Id!", Toast.LENGTH_SHORT).show();
-        }
+
 
     }
     @Override
