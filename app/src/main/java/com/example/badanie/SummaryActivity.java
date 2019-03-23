@@ -2,6 +2,7 @@ package com.example.badanie;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,6 +40,10 @@ public class SummaryActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_Finish)
     Button btn_Finish;
+
+    @BindView(R.id.btnHome)
+    Button btnHome;
+
     private void isReadStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -59,6 +64,16 @@ public class SummaryActivity extends AppCompatActivity {
             }
         } else { //permission is automatically granted on sdk<23 upon installation
         }
+    }
+    @OnClick(R.id.btnHome)
+     void onClick2(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        startActivity(intent);
+        isWriteStoragePermissionGranted();
+        String entry = EtNotes.getText().toString();
+        Save("105",entry);
     }
 
     @Override
@@ -119,5 +134,7 @@ public class SummaryActivity extends AppCompatActivity {
             Save("105",entry);
 
     }
+
+
 
 }}
