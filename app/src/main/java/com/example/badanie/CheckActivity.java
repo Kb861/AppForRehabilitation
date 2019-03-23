@@ -24,7 +24,7 @@ public class CheckActivity extends AppCompatActivity {
     @BindView(R.id.my_recycler_view)
     RecyclerView my_recycler_view;
     private RecyclerView.Adapter mAdapter;
-    private int count = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class CheckActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_show)
     public void Exit() {
+        int count=0;
         List<Item> stList = ((ItemAdapter) mAdapter).getitemList();
         for (int i = 0; i < stList.size(); i++) {
             Item sItem = stList.get(i);
