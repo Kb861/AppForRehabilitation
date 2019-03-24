@@ -93,6 +93,9 @@ public class StopwatchActivity extends AppCompatActivity {
         String allLaps = et_laps.getText().toString();
         bundle.putString("KEY", allLaps);
         intent.putExtras(bundle);
+        String Request = tvSaveTimeLap.getText().toString();
+        bundle.putString("KEY_ZAD", Request);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
@@ -170,6 +173,9 @@ public class StopwatchActivity extends AppCompatActivity {
 
                     String wpisanyTekst = et_laps.getText().toString();
                     bundle.putString("KEY", wpisanyTekst);
+                    intent.putExtras(bundle);
+                    String Request = tvSaveTimeLap.getText().toString();
+                    bundle.putString("KEY_ZAD", Request);
                     intent.putExtras(bundle);
 
                     startActivity(intent);
