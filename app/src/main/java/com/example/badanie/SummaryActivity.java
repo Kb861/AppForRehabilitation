@@ -88,10 +88,6 @@ public class SummaryActivity extends AppCompatActivity {
         String text = dataFromStopwatchActivity.getString("KEY");
         EtNotes.setText(text);
 
-       /* Bundle dataFromStartActivity = getIntent().getExtras();
-        String pobraneID = dataFromStartActivity.getString("KEY_ID");
-        TextViewID.setText(pobraneID);*/
-
     }
 
     private void Save(String id, String dane) {
@@ -119,17 +115,6 @@ public class SummaryActivity extends AppCompatActivity {
             Toast.makeText(SummaryActivity.this, "Za długi komentarz! ", Toast.LENGTH_SHORT).show();
         }
         else{
-            /*String FILENAME = TextViewID.getText().toString() + ".csv";
-            String entry = EtNotes.getText().toString();
-            try{
-                FileOutputStream out  = openFileOutput(FILENAME, Context.MODE_APPEND);
-                out.write(entry.getBytes());
-                out.close();
-                Toast.makeText(SummaryActivity.this, "Zapisano ", Toast.LENGTH_SHORT).show();
-            }catch (Exception e){
-                e.printStackTrace();
-                Toast.makeText(SummaryActivity.this, "Error saving file!", Toast.LENGTH_SHORT).show();
-            }*/
             String entry = EtNotes.getText().toString();
             Save("105",entry);
 

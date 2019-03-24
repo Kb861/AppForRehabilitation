@@ -41,14 +41,8 @@ public class StartActivity extends AppCompatActivity {
             if ( finalValue >=101 && finalValue<=201 )
             {
                 Intent intent = new Intent(this, CheckActivity.class);
-                Intent intent2 = new Intent(StartActivity.this, SummaryActivity.class);
                 Bundle bundle = new Bundle();
                 intent.putExtras(bundle);
-
-          /*  String wpisaneID = EtID.getText().toString();
-            bundle.putString("KEY_ID", wpisaneID);
-            intent2.putExtras(bundle);*/
-
                 startActivity(intent);
 
             }
@@ -61,7 +55,6 @@ public class StartActivity extends AppCompatActivity {
             Toast.makeText(StartActivity.this, "Należy wprowadzić ID użytkownika!", Toast.LENGTH_SHORT).show();
 
         }
-
 
     }
     @Override
