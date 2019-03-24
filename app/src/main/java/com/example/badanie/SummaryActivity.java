@@ -83,7 +83,8 @@ public class SummaryActivity extends AppCompatActivity {
         startActivity(intent);
         isWriteStoragePermissionGranted();
         String entry = EtNotes.getText().toString();
-        Save("105",entry);
+        String entry_req = tasks.getText().toString();
+        Save("105",entry,entry_req);
     }
 
     @Override
@@ -102,7 +103,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     }
 
-    private void Save(String id, String dane) {
+    private void Save(String id, String dane, String dane2) {
         try {
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
             File root = Environment.getExternalStoragePublicDirectory(
@@ -111,6 +112,8 @@ public class SummaryActivity extends AppCompatActivity {
             FileWriter writer = new FileWriter(gpxfile);
 
             writer.append(dane);
+            writer.append('\n');
+            writer.append(dane2);
             writer.append('\n');
             writer.flush();
             writer.close();
@@ -124,7 +127,8 @@ public class SummaryActivity extends AppCompatActivity {
     @OnClick(R.id.btn_Finish)
     void onClick(View view){
             String entry = EtNotes.getText().toString();
-            Save("105",entry);
+            String entry_req = tasks.getText().toString();
+            Save("105",entry,entry_req);
 
     }
     public void ShowBox(){
