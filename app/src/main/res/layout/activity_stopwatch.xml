@@ -85,6 +85,7 @@
             android:id="@+id/tvSaveTimeLap"
             android:layout_width="50dp"
             android:layout_height="80dp"
+            android:visibility="gone"
             android:layout_marginLeft="240dp" />
         <Button
             android:id="@+id/btn_Back"
