@@ -41,6 +41,9 @@ public class SummaryActivity extends AppCompatActivity {
     @BindView(R.id.EtNotes)
     EditText EtNotes;
 
+    @BindView(R.id.tasks)
+    TextView tasks;
+
     @BindView(R.id.btn_Finish)
     Button btn_Finish;
 
@@ -95,6 +98,7 @@ public class SummaryActivity extends AppCompatActivity {
         String text = dataFromStopwatchActivity.getString("KEY");
         String ReqText = dataFromStopwatchActivity.getString("KEY_ZAD");
         EtNotes.setText(text);
+        tasks.setText(ReqText);
 
     }
 
