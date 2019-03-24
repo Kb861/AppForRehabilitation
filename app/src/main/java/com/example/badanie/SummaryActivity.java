@@ -24,6 +24,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -91,15 +93,17 @@ public class SummaryActivity extends AppCompatActivity {
 
         Bundle dataFromStopwatchActivity = getIntent().getExtras();
         String text = dataFromStopwatchActivity.getString("KEY");
+        String ReqText = dataFromStopwatchActivity.getString("KEY_ZAD");
         EtNotes.setText(text);
 
     }
 
     private void Save(String id, String dane) {
         try {
+            String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
             File root = Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_DCIM);
-            File gpxfile = new File(root, id+".csv");
+            File gpxfile = new File(root, id +" " + timeStamp+".csv");
             FileWriter writer = new FileWriter(gpxfile);
 
             writer.append(dane);
