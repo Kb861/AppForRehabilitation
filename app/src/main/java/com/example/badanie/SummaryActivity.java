@@ -1,9 +1,12 @@
 package com.example.badanie;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +47,9 @@ public class SummaryActivity extends AppCompatActivity {
 
     @BindView(R.id.btnHome)
     Button btnHome;
+
+    Dialog epicDialog;
+    ImageView close;
 
     private void isReadStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -83,6 +90,7 @@ public class SummaryActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         isReadStoragePermissionGranted();
 
+        epicDialog=new Dialog(this);
 
         Bundle dataFromStopwatchActivity = getIntent().getExtras();
         String text = dataFromStopwatchActivity.getString("KEY");
@@ -110,16 +118,24 @@ public class SummaryActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_Finish)
     void onClick(View view){
-        if(EtNotes.length() > 250)
-        {
-            Toast.makeText(SummaryActivity.this, "Za długi komentarz! ", Toast.LENGTH_SHORT).show();
-        }
-        else{
+            ShowBox();
+
             String entry = EtNotes.getText().toString();
             Save("105",entry);
 
     }
 
 
-
-}}
+        public void ShowBox(){
+            epicDialog.setContentView(R.layout.dialog_box);
+            close=(ImageView) epicDialog.findViewById(R.id.close_box) ;
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    epicDialog.dismiss();
+                }
+            });
+            epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            epicDialog.show();
+        }
+}
