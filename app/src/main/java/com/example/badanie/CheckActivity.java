@@ -32,9 +32,12 @@ public class CheckActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check);
         ButterKnife.bind(this);
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item("Czujnik 1"));
-        itemList.add(new Item("Czujnik 2"));
-        itemList.add(new Item("Czujnik 3"));
+        itemList.add(new Item("Kamera termowizyjna"));
+        itemList.add(new Item("Kamera TOF"));
+        itemList.add(new Item("Czujnik IMU"));
+        itemList.add(new Item("Opaska piersiowa"));
+        itemList.add(new Item("Empatica"));
+        itemList.add(new Item("Platforma stabilograficzna"));
 
         RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
