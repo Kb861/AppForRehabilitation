@@ -48,7 +48,8 @@ public class SummaryActivity extends AppCompatActivity {
     Button btnHome;
 
     Dialog epicDialog;
-    ImageView close;
+    ImageView closedialog;
+
 
     private void isReadStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -88,9 +89,8 @@ public class SummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
         ButterKnife.bind(this);
         isReadStoragePermissionGranted();
-
         epicDialog=new Dialog(this);
-
+        ShowBox();
         Bundle dataFromStopwatchActivity = getIntent().getExtras();
         String text = dataFromStopwatchActivity.getString("KEY");
         String ReqText = dataFromStopwatchActivity.getString("KEY_ZAD");
@@ -119,24 +119,23 @@ public class SummaryActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_Finish)
     void onClick(View view){
-            ShowBox();
-
             String entry = EtNotes.getText().toString();
             Save("105",entry);
 
     }
+    public void ShowBox(){
+        epicDialog.setContentView(R.layout.dialog_box);
+        closedialog=(ImageView) epicDialog.findViewById(R.id.close_box) ;
+        closedialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                epicDialog.dismiss();
+            }
+        });
+        epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        epicDialog.show();
+    }
 
 
-        public void ShowBox(){
-            epicDialog.setContentView(R.layout.dialog_box);
-            close=(ImageView) epicDialog.findViewById(R.id.close_box) ;
-            close.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    epicDialog.dismiss();
-                }
-            });
-            epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            epicDialog.show();
-        }
+
 }

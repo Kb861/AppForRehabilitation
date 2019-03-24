@@ -1,7 +1,10 @@
 package com.example.badanie;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -68,7 +71,6 @@ public class StopwatchActivity extends AppCompatActivity {
     //lista dla czasu poszczególnych zadań
     public List<Query> taskTime=new ArrayList<>();
 
-
     @OnClick(R.id.btn_Back)
     void onClick(View view) {
         if (Chrono != null) {
@@ -81,6 +83,8 @@ public class StopwatchActivity extends AppCompatActivity {
 
     @OnClick(R.id.close)
     void onClickClose(View view) {
+
+
         if (Chrono != null) {
 
             Chrono.stop();
@@ -97,6 +101,7 @@ public class StopwatchActivity extends AppCompatActivity {
         bundle.putString("KEY_ZAD", Request);
         intent.putExtras(bundle);
         startActivity(intent);
+
     }
 
     @OnClick(R.id.btn_Next)
