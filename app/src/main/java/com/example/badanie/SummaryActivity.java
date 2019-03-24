@@ -39,9 +39,6 @@ public class SummaryActivity extends AppCompatActivity {
     @BindView(R.id.EtNotes)
     EditText EtNotes;
 
-    @BindView(R.id.TextViewID)
-    EditText TextViewID;
-
     @BindView(R.id.btn_Finish)
     Button btn_Finish;
 

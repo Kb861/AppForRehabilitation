@@ -8,53 +8,12 @@
     android:background="@color/colorbackground"
     android:layout_gravity="center_horizontal"
     tools:context=".SummaryActivity">
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:padding="20dp"
-    android:layout_height="100dp">
-
-    <EditText
-        android:id="@+id/TextViewID"
-        android:layout_width="230dp"
-        android:layout_height="52dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:hint="Wprowadź ID pacjenta"
-        android:inputType="number"
-        android:textColor="@color/textColor"
-        android:textColorHint="@color/textColor"
-        android:textColorLink="@color/textColor"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSaveID"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSaveID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="ok"
-        android:textColor="@color/textColor"
-        android:background="@drawable/frame"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
 
 
     <EditText
         android:id="@+id/EtNotes"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="270dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:gravity="center"
@@ -80,12 +39,11 @@
     <Button
         android:id="@+id/btnHome"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:textColor="@color/textColor"
-        android:background="@drawable/frame"
+        android:background="@drawable/ic_home_black_24dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Home"
         app:layout_constraintStart_toStartOf="parent" />
 
 
