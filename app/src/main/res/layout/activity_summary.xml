@@ -16,7 +16,6 @@
         android:layout_height="270dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:gravity="center"
         android:hint="Notatki"
         android:textColorLink="@color/textColor"
         android:textColorHint="@color/textColor"

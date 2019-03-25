@@ -212,7 +212,10 @@ public class StopwatchActivity extends AppCompatActivity {
         }
 
     }
-
+    @Override
+    public void onBackPressed() {
+        // Do Here what ever you want do on back press;
+    }
 
     public void updateTimerText(final String timeAsText) {
         runOnUiThread(new Runnable() {
