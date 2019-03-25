@@ -100,13 +100,29 @@ public class SummaryActivity extends AppCompatActivity {
         String ReqText = dataFromStopwatchActivity.getString("KEY_ZAD");
         EtNotes.setText(text);
         tasks.setText(ReqText);
+        EtNotes.setOnFocusChangeListener(onFocusChangeListener);
+
 
     }
+
 
     @Override
     public void onBackPressed() {
         // Do Here what ever you want do on back press;
     }
+
+    /**
+     * Set pointer to end of text in edittext when user clicks Next on KeyBoard.
+     */
+    View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View view, boolean b) {
+            if (b) {
+                //((EditText) view).setSelection(((EditText) view).getText().length());
+                ((EditText) view).setSelection(20);
+            }
+        }
+    };
 
     private void Save(String id, String dane, String dane2) {
         try {
