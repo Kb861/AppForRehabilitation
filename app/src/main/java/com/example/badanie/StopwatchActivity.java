@@ -166,6 +166,8 @@ public class StopwatchActivity extends AppCompatActivity {
                     + "   " + TextViewTime.getText() + "\n");
                 }
                 if (count == tasks.size()) {
+                    tvSaveTimeLap.append("Zad " + String.valueOf(count)
+                            + "   " + TextViewTime.getText() + "\n");
                     if (Chrono != null) {
 
                         Chrono.stop();

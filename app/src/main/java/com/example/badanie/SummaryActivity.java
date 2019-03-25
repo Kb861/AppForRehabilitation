@@ -103,6 +103,11 @@ public class SummaryActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        // Do Here what ever you want do on back press;
+    }
+
     private void Save(String id, String dane, String dane2) {
         try {
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
@@ -126,9 +131,14 @@ public class SummaryActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_Finish)
     void onClick(View view){
+
             String entry = EtNotes.getText().toString();
             String entry_req = tasks.getText().toString();
             Save("105",entry,entry_req);
+            Intent intent = new Intent(this, StartActivity.class);
+            Bundle bundle = new Bundle();
+            intent.putExtras(bundle);
+            startActivity(intent);
 
     }
     public void ShowBox(){
