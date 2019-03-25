@@ -84,7 +84,7 @@ public class SummaryActivity extends AppCompatActivity {
         isWriteStoragePermissionGranted();
         String entry = EtNotes.getText().toString();
         String entry_req = tasks.getText().toString();
-        Save("105",entry,entry_req);
+        Save("134",entry,entry_req);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class SummaryActivity extends AppCompatActivity {
         try {
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
             File root = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DCIM);
+                    Environment.DIRECTORY_DCIM+"/"+timeStamp);
             File gpxfile = new File(root, id +" " + timeStamp+".csv");
             FileWriter writer = new FileWriter(gpxfile);
 

@@ -4,13 +4,17 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
         isWriteStoragePermissionGranted();
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+        File folder = new File(Environment.getExternalStorageDirectory() +
+                File.separator + Environment.DIRECTORY_DCIM+"/"+timeStamp);
+        boolean success = true;
+        if (!folder.exists()) {
+            success = folder.mkdirs();
+        }
+        if (success) {
+            // Do something on success
+        } else {
+            // Do something else on failure
+        }
     }
     private void isWriteStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
