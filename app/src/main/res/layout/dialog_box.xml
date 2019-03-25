@@ -27,23 +27,34 @@
         android:layout_marginLeft="110dp"
         android:layout_below="@id/close_box"
         android:src="@drawable/ic_error_outline_black_24dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="350dp"
+        android:text="Kamera termowizyjna \n Kamera TOF \n Czujnik IMU \n Opaska piersiowa \n Empatica \n Platforma stabilograficzna"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/attention"
-        android:gravity="center"
-        android:layout_height="match_parent">
+        android:layout_marginTop="-110dp"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
             android:layout_marginRight="5dp"
             android:text="Czy wyłączono wszytskie czujniki?"
-            android:textSize="50sp"
             android:textAlignment="center"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="76dp" />
 

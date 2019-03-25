@@ -112,7 +112,7 @@ public class SummaryActivity extends AppCompatActivity {
     }
 
     /**
-     * Set pointer to end of text in edittext when user clicks Next on KeyBoard.
+     * Set pointer to text in edittext.
      */
     View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
         @Override
