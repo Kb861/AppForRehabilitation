@@ -60,6 +60,10 @@ public class CheckActivity extends AppCompatActivity {
         {Intent intent = new Intent(CheckActivity.this, StopwatchActivity.class);
             Bundle bundle = new Bundle();
             intent.putExtras(bundle);
+            Bundle dataFromStartActivity = getIntent().getExtras();
+            String TextId = dataFromStartActivity.getString("KEY_ID");
+            bundle.putString("KEY_ID", TextId);
+            intent.putExtras(bundle);
             startActivity(intent);}
         else
         {Toast.makeText(CheckActivity.this, "Pamiętaj o wszystkich czujnikach! ", Toast.LENGTH_SHORT).show();}

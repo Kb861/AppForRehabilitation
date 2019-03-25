@@ -29,6 +29,13 @@
         android:text="tu text"
         android:visibility="gone"
         />
+    <TextView
+        android:id="@+id/tasks_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tu text"
+        android:visibility="gone"
+        />
     <Button
         android:id="@+id/btn_Finish"
         android:layout_width="wrap_content"

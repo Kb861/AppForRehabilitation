@@ -43,6 +43,9 @@ public class StartActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, CheckActivity.class);
                 Bundle bundle = new Bundle();
                 intent.putExtras(bundle);
+                String Id = EtID.getText().toString();
+                bundle.putString("KEY_ID", Id);
+                intent.putExtras(bundle);
                 startActivity(intent);
 
             }

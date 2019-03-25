@@ -44,6 +44,9 @@ public class SummaryActivity extends AppCompatActivity {
     @BindView(R.id.tasks)
     TextView tasks;
 
+    @BindView(R.id.tasks_id)
+    TextView tasks_id;
+
     @BindView(R.id.btn_Finish)
     Button btn_Finish;
 
@@ -98,6 +101,8 @@ public class SummaryActivity extends AppCompatActivity {
         Bundle dataFromStopwatchActivity = getIntent().getExtras();
         String text = dataFromStopwatchActivity.getString("KEY");
         String ReqText = dataFromStopwatchActivity.getString("KEY_ZAD");
+        String IdText = dataFromStopwatchActivity.getString("KEY_ID");
+        tasks_id.setText(IdText);
         EtNotes.setText(text);
         tasks.setText(ReqText);
         EtNotes.setOnFocusChangeListener(onFocusChangeListener);

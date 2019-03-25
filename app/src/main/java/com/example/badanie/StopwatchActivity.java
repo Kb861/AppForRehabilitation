@@ -100,6 +100,10 @@ public class StopwatchActivity extends AppCompatActivity {
         String Request = tvSaveTimeLap.getText().toString();
         bundle.putString("KEY_ZAD", Request);
         intent.putExtras(bundle);
+        Bundle dataFromStartActivity = getIntent().getExtras();
+        String Id = dataFromStartActivity.getString("KEY_ID");
+        bundle.putString("KEY_ID", Id);
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
