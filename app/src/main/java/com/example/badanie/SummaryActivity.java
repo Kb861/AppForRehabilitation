@@ -139,10 +139,11 @@ public class SummaryActivity extends AppCompatActivity {
                     Environment.DIRECTORY_DCIM+"/results");
             File gpxfile = new File(root, id +" " + timeStamp+".csv");
             FileWriter writer = new FileWriter(gpxfile);
-
-            writer.append(dane);
+            writer.append(id);
             writer.append('\n');
             writer.append(dane2);
+            writer.append('\n');
+            writer.append(dane);
             writer.append('\n');
             writer.flush();
             writer.close();
