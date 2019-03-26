@@ -34,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
         isWriteStoragePermissionGranted();
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         File folder = new File(Environment.getExternalStorageDirectory() +
-                File.separator + Environment.DIRECTORY_DCIM+"/"+timeStamp);
+                File.separator + Environment.DIRECTORY_DCIM+"/results");
         boolean success = true;
         if (!folder.exists()) {
             success = folder.mkdirs();

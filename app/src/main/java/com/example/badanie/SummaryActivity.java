@@ -134,7 +134,7 @@ public class SummaryActivity extends AppCompatActivity {
         try {
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
             File root = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DCIM+"/"+timeStamp);
+                    Environment.DIRECTORY_DCIM+"/results");
             File gpxfile = new File(root, id +" " + timeStamp+".csv");
             FileWriter writer = new FileWriter(gpxfile);
 

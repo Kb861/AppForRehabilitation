@@ -146,6 +146,9 @@ public class StopwatchActivity extends AppCompatActivity {
                     count=count-1;
                 if (count < tasks.size()) {
 
+                    String czas = tvSaveTimeLap.getText().toString();
+                    czas=czas.substring(0,tvSaveTimeLap.length() - 21);
+                    tvSaveTimeLap.setText(czas);
                     TVName.setText(tasks.get(count));
 
 
