@@ -122,8 +122,11 @@ public class SummaryActivity extends AppCompatActivity {
     View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
         @Override
         public void onFocusChange(View view, boolean b) {
-            if (b) {
-                //((EditText) view).setSelection(((EditText) view).getText().length());
+            if (EtNotes.length() == 0) {
+                ((EditText) view).setSelection(0);
+            }
+            else
+            {
                 ((EditText) view).setSelection(20);
             }
         }
