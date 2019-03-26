@@ -30,10 +30,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="45dp"
         android:layout_marginTop="350dp"
         android:text="Kamera termowizyjna \n Kamera TOF \n Czujnik IMU \n Opaska piersiowa \n Empatica \n Platforma stabilograficzna"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -50,7 +50,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="2dp"
             android:layout_marginRight="5dp"
             android:text="Czy wyłączono wszytskie czujniki?"
             android:textAlignment="center"
