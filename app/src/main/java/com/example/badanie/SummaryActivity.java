@@ -98,7 +98,6 @@ public class SummaryActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         isReadStoragePermissionGranted();
         epicDialog=new Dialog(this);
-        ShowBox();
         Bundle dataFromStopwatchActivity = getIntent().getExtras();
         String text = dataFromStopwatchActivity.getString("KEY");
         String ReqText = dataFromStopwatchActivity.getString("KEY_ZAD");
@@ -158,10 +157,12 @@ public class SummaryActivity extends AppCompatActivity {
             String entry_req = tasks.getText().toString();
             String entry_id = tasks_id.getText().toString();
             Save(entry_id,entry,entry_req);
-            Intent intent = new Intent(this, StartActivity.class);
-            Bundle bundle = new Bundle();
-            intent.putExtras(bundle);
-            startActivity(intent);
+           // Intent intent = new Intent(this, StartActivity.class);
+            //Bundle bundle = new Bundle();
+            //intent.putExtras(bundle);
+            ShowBox();
+            //startActivity(intent);
+
 
     }
     public void ShowBox(){
