@@ -87,7 +87,8 @@ public class SummaryActivity extends AppCompatActivity {
         isWriteStoragePermissionGranted();
         String entry = EtNotes.getText().toString();
         String entry_req = tasks.getText().toString();
-        Save("134",entry,entry_req);
+        String entry_id = tasks_id.getText().toString();
+        Save(entry_id,entry,entry_req);
     }
 
     @Override
@@ -155,7 +156,8 @@ public class SummaryActivity extends AppCompatActivity {
 
             String entry = EtNotes.getText().toString();
             String entry_req = tasks.getText().toString();
-            Save("105",entry,entry_req);
+            String entry_id = tasks_id.getText().toString();
+            Save(entry_id,entry,entry_req);
             Intent intent = new Intent(this, StartActivity.class);
             Bundle bundle = new Bundle();
             intent.putExtras(bundle);
