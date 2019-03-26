@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -47,6 +48,20 @@ public class MainActivity extends AppCompatActivity {
             // Do something on success
         } else {
             // Do something else on failure
+        }
+    }
+
+    @OnClick(R.id.btn_download)
+    void onClick1(View view) {
+        String path = String.valueOf(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DCIM+"/results"));
+        Log.d("Files", "Path: " + path);
+        File directory = new File(path);
+        File[] files = directory.listFiles();
+        Log.d("Files", "Size: "+ files.length);
+        for (int i = 0; i < files.length; i++)
+        {
+            Log.d("Files", "FileName:" + files[i].getName());
         }
     }
     private void isWriteStoragePermissionGranted() {
