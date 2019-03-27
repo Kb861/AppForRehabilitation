@@ -55,6 +55,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     Dialog epicDialog;
     ImageView closedialog;
+    Context contex;
 
 
     private void isReadStoragePermissionGranted() {
@@ -175,6 +176,11 @@ public class SummaryActivity extends AppCompatActivity {
         closedialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                Bundle bundle = new Bundle();
+                intent.putExtras(bundle);
+                startActivity(intent);
                 epicDialog.dismiss();
             }
         });

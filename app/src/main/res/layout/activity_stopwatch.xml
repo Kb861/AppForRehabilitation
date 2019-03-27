@@ -2,83 +2,102 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorbackground"
     android:layout_gravity="center_horizontal"
+    android:background="@color/colorbackground"
+    android:orientation="vertical"
     tools:context=".StopwatchActivity">
 
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="100dp">
-
-    <ImageView
-        android:id="@+id/close"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_close_black_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/TVName"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="Tutaj będzie nazwa badania"
-        android:textColor="@color/textColor"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_close_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_Back"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_keyboard_backspace"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toStartOf="@+id/close"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/close" />
+
+        <TextView
+            android:id="@+id/TVName"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="Tutaj będzie nazwa badania"
+            android:textColor="@color/textColor"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
     <TextView
         android:id="@+id/TextViewTime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
         android:text="00:00:00:000"
         android:textColor="@color/textColor"
         android:textSize="30sp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_gravity="bottom"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btn_Next"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginRight="5dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/ic_timer_black_24dp"
             android:textColor="@color/textColor" />
+
         <Button
             android:id="@+id/btn_Go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:background="@drawable/circle_button"
             android:layout_marginLeft="100dp"
+            android:background="@drawable/circle_button"
             android:text="Dalej"
             android:textColor="@color/textColor" />
 
@@ -86,18 +105,8 @@
             android:id="@+id/tvSaveTimeLap"
             android:layout_width="50dp"
             android:layout_height="80dp"
-            android:visibility="gone"
-            android:layout_marginLeft="240dp" />
-
-        <Button
-            android:id="@+id/btn_Back"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-android:layout_marginTop="50dp"
-            android:background="@drawable/back_btn"
-            android:textColor="@color/textColor" />
+            android:layout_marginLeft="240dp"
+            android:visibility="gone" />
 
 
     </RelativeLayout>
@@ -115,13 +124,13 @@ android:layout_marginTop="50dp"
 
             <EditText
                 android:id="@+id/et_laps"
-                android:cursorVisible="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:allowUndo="false"
-               android:editable="false"
-                android:textColor="@color/textColor"/>
+                android:cursorVisible="false"
+                android:editable="false"
+                android:textColor="@color/textColor" />
 
         </ScrollView>
     </LinearLayout>

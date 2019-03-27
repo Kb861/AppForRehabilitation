@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -83,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < files.length; i++)
         {
             paths.add(files[i].getName());
-            //Log.d("Files", "FileName:" + files[i].getName());
             File fileToGet = new File(fileDirectory,paths.get(i).toString());
             try {
                 BufferedReader br = new BufferedReader(new FileReader(fileToGet));
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     allTimes.add(line);
                     writer.append("\n");
                     writer.append(line);
+                    Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
 
                 }
             }catch (FileNotFoundException e) {
@@ -113,15 +114,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
-
-
 
 
     public List<String> tasks = new ArrayList<>();
