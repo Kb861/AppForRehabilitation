@@ -148,7 +148,7 @@ public class SummaryActivity extends AppCompatActivity {
             writer.append('\n');
             writer.flush();
             writer.close();
-            Toast.makeText(SummaryActivity.this, "Success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SummaryActivity.this, "Zapisano pomyślnie", Toast.LENGTH_SHORT).show();
 
         } catch (IOException e) {
             e.printStackTrace();

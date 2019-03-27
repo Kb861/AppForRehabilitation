@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             writer = new FileWriter(gpxfile);
         } catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         Log.d("Files", "Path: " + path);
@@ -98,8 +99,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }catch (FileNotFoundException e) {
             e.printStackTrace();
+                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
             e.printStackTrace();
+                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -110,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
 
