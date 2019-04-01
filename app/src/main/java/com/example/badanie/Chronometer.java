@@ -2,6 +2,10 @@ package com.example.badanie;
 
 import android.content.Context;
 
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Chronometer implements Runnable {
 
     public static final long MILLIS_TO_MINUTES = 60000;
@@ -81,12 +85,13 @@ public class Chronometer implements Runnable {
 
             int seconds = (int) (since / 1000) % 60;
             int minutes = (int) ((since / (MILLIS_TO_MINUTES)) % 60);
-
             int hours = (int) ((since / (MILLS_TO_HOURS)));
             int millis = (int) since % 1000;
+            Calendar calendar=Calendar.getInstance();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+String time =simpleDateFormat.format(calendar.getTime());
 
-           ((StopwatchActivity) mContext).updateTimerText(String.format("%02d:%02d:%02d:%03d"
-                 , hours, minutes, seconds, millis));
+           ((StopwatchActivity) mContext).updateTimerText(String.format(time));
 
             try {
                 Thread.sleep(15);
