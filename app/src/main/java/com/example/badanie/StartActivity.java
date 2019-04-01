@@ -38,8 +38,8 @@ public class StartActivity extends AppCompatActivity {
         {
             int finalValue=Integer.parseInt(value);
 
-            if ( finalValue >=101 && finalValue<=201 )
-            {
+            //if ( finalValue >=101 && finalValue<=201 )
+            //{
                 Intent intent = new Intent(this, CheckActivity.class);
                 Bundle bundle = new Bundle();
                 intent.putExtras(bundle);
@@ -48,10 +48,10 @@ public class StartActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
 
-            }
-            else{
-                Toast.makeText(StartActivity.this, "Wprowadzono złe ID!", Toast.LENGTH_SHORT).show();
-            }
+            //}
+            //else{
+              //  Toast.makeText(StartActivity.this, "Wprowadzono złe ID!", Toast.LENGTH_SHORT).show();
+            //}
         }
         else
         {

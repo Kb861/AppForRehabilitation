@@ -84,16 +84,19 @@ public class MainActivity extends AppCompatActivity {
         List<String> allTimes = new ArrayList<>();
         for (int i = 0; i < files.length; i++)
         {
+
             paths.add(files[i].getName());
             File fileToGet = new File(fileDirectory,paths.get(i).toString());
             try {
                 BufferedReader br = new BufferedReader(new FileReader(fileToGet));
                 String line;
+                writer.append("\n");
                 while ((line = br.readLine()) !=null) {
 
                     allTimes.add(line);
-                    writer.append("\n");
+                    //writer.append("\n");
                     writer.append(line);
+                  //
                     Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
 
                 }
