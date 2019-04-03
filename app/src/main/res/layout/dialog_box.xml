@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:text="Czy wyłączono wszytskie czujniki?"
+            android:text="Czy wyłączono wszystkie czujniki?"
             android:textAlignment="center"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"

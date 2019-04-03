@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     allTimes.add(line);
                     //writer.append("\n");
                     writer.append(line);
+                    writer.append(",");
                   //
                     Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
 
