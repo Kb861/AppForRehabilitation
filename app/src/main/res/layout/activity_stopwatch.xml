@@ -68,7 +68,7 @@
         android:gravity="center"
         android:text="00:00:00:000"
         android:textColor="@color/textColor"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
