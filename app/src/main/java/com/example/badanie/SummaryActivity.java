@@ -128,14 +128,14 @@ public class SummaryActivity extends AppCompatActivity {
             }
             else
             {
-                ((EditText) view).setSelection(20);
+                ((EditText) view).setSelection(16);
             }
         }
     };
 
     private void Save(String id, String dane, String dane2) {
         try {
-            String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+            String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HH:mm").format(Calendar.getInstance().getTime());
             File root = Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_DCIM+"/results");
             File gpxfile = new File(root, id +" " + timeStamp+".csv");

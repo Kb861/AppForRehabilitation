@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         FileWriter writer = null;
         try {
             writer = new FileWriter(gpxfile);
+
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -85,22 +86,31 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < files.length; i++)
         {
 
+
+
             paths.add(files[i].getName());
             File fileToGet = new File(fileDirectory,paths.get(i).toString());
             try {
+                writer.append("\n");
                 BufferedReader br = new BufferedReader(new FileReader(fileToGet));
                 String line;
-                writer.append("\n");
                 while ((line = br.readLine()) !=null) {
-
-                    allTimes.add(line);
-                    //writer.append("\n");
-                    writer.append(line);
-                  //
-                    Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
+                    if(line.length()>8)
+                    {
+                        line=line.substring(8);
+                        writer.append(line);
+                        writer.append(";");}
+                    else if(line.length()>=1)
+                    {
+                        writer.append(line);
+                        writer.append(";");
+                    }
 
                 }
-            }catch (FileNotFoundException e) {
+                Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
+
+            }
+            catch (FileNotFoundException e) {
             e.printStackTrace();
                 Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
@@ -111,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         try {
-            
             writer.flush();
             writer.close();
         } catch (IOException e) {
