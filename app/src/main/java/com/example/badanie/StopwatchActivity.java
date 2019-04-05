@@ -250,6 +250,10 @@ public class StopwatchActivity extends AppCompatActivity {
         try {
             while((line=reader.readLine()) !=null){
                 tasks.add(line);
+                for(int i = 0; i<tasks.size();i++)
+                {
+                    tasks.set(i,"Z"+i);
+                }
 
                 Log.d("MyActivity","Just created:"+line);
             }

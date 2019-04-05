@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btn_download)
     Button btn_download;
 
-// metoda startu przechodząca do kolejnej aktywności
+    // metoda startu przechodząca do kolejnej aktywności
     @OnClick(R.id.btnstart)
     void onClick(View view) {
         Intent intent = new Intent(this, StartActivity.class);
@@ -48,24 +48,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         File folder = new File(Environment.getExternalStorageDirectory() +
-                File.separator + Environment.DIRECTORY_DCIM+"/results");
+                File.separator + Environment.DIRECTORY_DCIM + "/results");
         boolean success = true;
         if (!folder.exists()) {
             success = folder.mkdirs();
         }
         if (success) {
-            // Do something on success
+
         } else {
-            // Do something else on failure
+
         }
     }
 
     @OnClick(R.id.btn_download)
     void onClick1(View view) {
         String path = String.valueOf(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DCIM+"/results"));
+                Environment.DIRECTORY_DCIM + "/results"));
         File root = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DCIM+"/results");
+                Environment.DIRECTORY_DCIM + "/results");
         File gpxfile = new File(root, "all.csv");
         FileWriter writer = null;
         try {
@@ -79,29 +79,25 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Files", "Path: " + path);
         File directory = new File(path);
         File[] files = directory.listFiles();
-        File fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM+"/results");
-        Log.d("Files", "Size: "+ files.length);
-        List<String> paths=new ArrayList<>();
+        File fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM + "/results");
+        Log.d("Files", "Size: " + files.length);
+        List<String> paths = new ArrayList<>();
         List<String> allTimes = new ArrayList<>();
-        for (int i = 0; i < files.length; i++)
-        {
-
+        for (int i = 0; i < files.length; i++) {
 
 
             paths.add(files[i].getName());
-            File fileToGet = new File(fileDirectory,paths.get(i).toString());
+            File fileToGet = new File(fileDirectory, paths.get(i).toString());
             try {
                 writer.append("\n");
                 BufferedReader br = new BufferedReader(new FileReader(fileToGet));
                 String line;
-                while ((line = br.readLine()) !=null) {
-                    if(line.length()>8)
-                    {
-                        line=line.substring(8);
+                while ((line = br.readLine()) != null) {
+                    if (line.length() > 8) {
+                        line = line.substring(8);
                         writer.append(line);
-                        writer.append(";");}
-                    else if(line.length()>=1)
-                    {
+                        writer.append(";");
+                    } else if (line.length() >= 1) {
                         writer.append(line);
                         writer.append(";");
                     }
@@ -109,12 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
 
-            }
-            catch (FileNotFoundException e) {
-            e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
                 Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
-            e.printStackTrace();
+                e.printStackTrace();
                 Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
@@ -133,17 +128,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     public List<String> tasks = new ArrayList<>();
+
     private void readData() {
-        InputStream is=getResources().openRawResource(R.raw.dane);
+        InputStream is = getResources().openRawResource(R.raw.dane);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
         );
-        String line="";
+        String line = "";
         try {
-            while((line=reader.readLine()) !=null){
+            while ((line = reader.readLine()) != null) {
                 tasks.add(line);
 
-                Log.d("MyActivity","Just created:"+line);
+
+                Log.d("MyActivity", "Just created:" + line);
             }
         } catch (IOException e) {
             Log.wtf("MyActivity", "Error reading data file on line" + line, e);
@@ -171,8 +168,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         isWriteStoragePermissionGranted();
         ButterKnife.bind(this);
+        readData();
 
     }
+
     @Override
     public void onBackPressed() {
     }
