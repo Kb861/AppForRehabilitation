@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
-        isWriteStoragePermissionGranted();
+
         File folder = new File(Environment.getExternalStorageDirectory() +
                 File.separator + Environment.DIRECTORY_DCIM+"/results");
         boolean success = true;
@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        isWriteStoragePermissionGranted();
         ButterKnife.bind(this);
 
     }
