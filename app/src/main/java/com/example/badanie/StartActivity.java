@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,45 +30,54 @@ public class StartActivity extends AppCompatActivity {
     @BindView(R.id.btn_ID)
     Button btn_ID;
 
-    // metoda wczytująca i sprawdzająca id
     @OnClick(R.id.btn_ID)
     void onClick(View view) {
 
-        String value= EtID.getText().toString();
-        if (!value.isEmpty())
-        {
-            int finalValue=Integer.parseInt(value);
+        String value = EtID.getText().toString();
+        if (!value.isEmpty()) {
+            int finalValue = Integer.parseInt(value);
+            Intent intent = new Intent(this, CheckActivity.class);
+            Bundle bundle = new Bundle();
+            intent.putExtras(bundle);
+            String Id = EtID.getText().toString();
+            bundle.putString("KEY_ID", Id);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
-            //if ( finalValue >=101 && finalValue<=201 )
-            //{
-                Intent intent = new Intent(this, CheckActivity.class);
-                Bundle bundle = new Bundle();
-                intent.putExtras(bundle);
-                String Id = EtID.getText().toString();
-                bundle.putString("KEY_ID", Id);
-                intent.putExtras(bundle);
-                startActivity(intent);
 
-            //}
-            //else{
-              //  Toast.makeText(StartActivity.this, "Wprowadzono złe ID!", Toast.LENGTH_SHORT).show();
-            //}
-        }
-        else
-        {
+        } else {
             Toast.makeText(StartActivity.this, "Należy wprowadzić ID użytkownika!", Toast.LENGTH_SHORT).show();
 
         }
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        SupportActionBarBack();
 
     }
+    public void SupportActionBarBack() {
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == android.R.id.home)
+        {
+            this.finish();
+            Intent intent = new Intent(this, MainActivity.class);
+            this.startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-
+    @Override
+    public void onBackPressed() {
+    }
 
 }
