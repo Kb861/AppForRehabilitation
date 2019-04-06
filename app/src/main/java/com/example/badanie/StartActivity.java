@@ -78,7 +78,10 @@ public class StartActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 }
