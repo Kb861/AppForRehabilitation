@@ -116,7 +116,7 @@ public class StopwatchActivity extends AppCompatActivity {
         }
         //we just simply copy the current text of tv_timer and append it to et_laps
 
-       et_laps.append("LAP " + String.valueOf(mLapCounter++)
+       et_laps.append("M " + String.valueOf(mLapCounter++)
                 + "   " + TextViewTime.getText() + "\n");
 
         //scroll to the bottom of et_laps
