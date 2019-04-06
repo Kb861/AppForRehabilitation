@@ -93,7 +93,11 @@ public class StopwatchActivity extends AppCompatActivity {
     @OnClick(R.id.close)
     void onClickClose(View view) {
 
-
+        for(int i=count;i<tasks.size();i++)
+        {
+            tvSaveTimeLap.append("Zad " + String.valueOf(i+1)
+                    + "   " + "00:00:00" + "\n");
+        }
         if (Chrono != null) {
 
             Chrono.stop();
@@ -146,7 +150,7 @@ public class StopwatchActivity extends AppCompatActivity {
         readData();
         TVName.setText(tasks.get(0));
         String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-        tvSaveTimeLap.append("Zad " + String.valueOf(count)
+        tvSaveTimeLap.append("Zad " + String.valueOf(count+1)
                 + "   " + timeStamp + "\n");
 
 
@@ -181,7 +185,7 @@ public class StopwatchActivity extends AppCompatActivity {
                 taskTime.add(task);
                 if (count < tasks.size()) {
                     TVName.setText(tasks.get(count));
-                    tvSaveTimeLap.append("Zad " + String.valueOf(count)
+                    tvSaveTimeLap.append("Zad " + String.valueOf(count+1)
                     + "   " + TextViewTime.getText() + "\n");
                 }
                 if (count == tasks.size()) {
