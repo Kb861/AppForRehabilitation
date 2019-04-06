@@ -34,10 +34,10 @@ public class CheckActivity extends AppCompatActivity {
         List<Item> itemList = new ArrayList<>();
         itemList.add(new Item("Kamera termowizyjna"));
         itemList.add(new Item("Kamera TOF"));
-        itemList.add(new Item("Czujnik IMU"));
+        itemList.add(new Item("System BTS"));
         itemList.add(new Item("Opaska piersiowa"));
         itemList.add(new Item("Empatica"));
-        itemList.add(new Item("Platforma stabilograficzna"));
+
 
         RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
