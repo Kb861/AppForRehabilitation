@@ -86,7 +86,7 @@ public class SummaryActivity extends AppCompatActivity {
         String entry_req = tasks.getText().toString();
         String entry_id = tasks_id.getText().toString();
         Save(entry_id,entry,entry_req);
-        ShowBox();
+        ShowBox("MainActivity");
     }
 
     @Override
@@ -162,23 +162,29 @@ public class SummaryActivity extends AppCompatActivity {
            // Intent intent = new Intent(this, StartActivity.class);
             //Bundle bundle = new Bundle();
             //intent.putExtras(bundle);
-            ShowBox();
+            ShowBox("StartActivity");
             //startActivity(intent);
 
 
     }
-    public void ShowBox(){
+    public void ShowBox(final String name){
         epicDialog.setContentView(R.layout.dialog_box);
         closedialog=(ImageView) epicDialog.findViewById(R.id.close_box) ;
         closedialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
-                Bundle bundle = new Bundle();
-                intent.putExtras(bundle);
-                startActivity(intent);
-                epicDialog.dismiss();
+                if(name=="StartActivity")
+                {Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                    Bundle bundle = new Bundle();
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    epicDialog.dismiss();}
+                if(name=="MainActivity")
+                {Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    epicDialog.dismiss();}
             }
         });
         epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
