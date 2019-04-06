@@ -22,7 +22,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,7 +36,14 @@ import butterknife.OnClick;
  */
 
 public class StopwatchActivity extends AppCompatActivity {
-
+    public void updateTimerText(final String timeAsText) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                TextViewTime.setText(timeAsText);
+            }
+        });
+    }
     @BindView(R.id.btn_Back)
     Button btn_Back;
 
@@ -136,6 +145,9 @@ public class StopwatchActivity extends AppCompatActivity {
         Context = this;
         readData();
         TVName.setText(tasks.get(0));
+        String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        tvSaveTimeLap.append("Zad " + String.valueOf(count)
+                + "   " + timeStamp + "\n");
 
 
         btn_Back.setOnClickListener(new View.OnClickListener() {
@@ -173,8 +185,6 @@ public class StopwatchActivity extends AppCompatActivity {
                     + "   " + TextViewTime.getText() + "\n");
                 }
                 if (count == tasks.size()) {
-                    tvSaveTimeLap.append("Zad " + String.valueOf(count)
-                            + "   " + TextViewTime.getText() + "\n");
                     if (Chrono != null) {
 
                         Chrono.stop();
@@ -230,14 +240,7 @@ public class StopwatchActivity extends AppCompatActivity {
         // Do Here what ever you want do on back press;
     }
 
-    public void updateTimerText(final String timeAsText) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                TextViewTime.setText(timeAsText);
-            }
-        });
-    }
+
 
     //metoda wczytuje listę zadań (plik.csv)
     public List<String> tasks = new ArrayList<>();
