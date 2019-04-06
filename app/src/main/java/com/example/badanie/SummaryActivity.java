@@ -81,15 +81,12 @@ public class SummaryActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btnHome)
      void onClick2(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        startActivity(intent);
         isWriteStoragePermissionGranted();
         String entry = EtNotes.getText().toString();
         String entry_req = tasks.getText().toString();
         String entry_id = tasks_id.getText().toString();
         Save(entry_id,entry,entry_req);
+        ShowBox();
     }
 
     @Override
