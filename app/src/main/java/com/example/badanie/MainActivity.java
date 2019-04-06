@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_download)
     void onClick1(View view) {
+        readnumberofTasks();
         String path = String.valueOf(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DCIM + "/results"));
         File root = Environment.getExternalStoragePublicDirectory(
@@ -70,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
         FileWriter writer = null;
         try {
             writer = new FileWriter(gpxfile);
+            writer.append("ID"+";");
+            for (int i = 0; i < noTasks; i++)
+            {
+                writer.append("Zad"+ (i+1)+";");
+            }
+            writer.append("miedzyczas");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Files", "Size: " + files.length);
         List<String> paths = new ArrayList<>();
         List<String> allTimes = new ArrayList<>();
+
+
         for (int i = 0; i < files.length; i++) {
 
 
@@ -174,5 +183,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+
+    public int noTasks=0;
+    private void readnumberofTasks() {
+        InputStream is=getResources().openRawResource(R.raw.dane);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line="";
+        try {
+            while((line=reader.readLine()) !=null){
+                noTasks=noTasks+1;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

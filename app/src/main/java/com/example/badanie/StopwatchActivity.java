@@ -257,11 +257,8 @@ public class StopwatchActivity extends AppCompatActivity {
                 {
                     tasks.set(i,"Z"+i);
                 }
-
-                Log.d("MyActivity","Just created:"+line);
             }
         } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading data file on line" + line, e);
             e.printStackTrace();
         }
 
