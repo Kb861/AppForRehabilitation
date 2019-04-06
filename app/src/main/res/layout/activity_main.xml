@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorbackground"
     android:layout_gravity="center_horizontal"
+    android:background="@color/colorbackground"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_fileName="patientd.json"
-        app:lottie_loop="true"/>
+        app:lottie_loop="true" />
 
 
     <EditText
@@ -24,25 +30,51 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="425dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:hint="ID"
-        android:textSize="35sp"
-        android:textColorHint="@color/textColor"
         android:inputType="number"
-        android:textColor="@color/textColor" />
+        android:textColor="@color/textColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/animation_view" />
 
     <Button
         android:id="@+id/btn_ID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/textColor"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/frame"
-        android:layout_marginLeft="30dp"
+        android:text="Dalej"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EtID"
+        app:layout_constraintVertical_bias="0.344" />
+
+    <TextView
+        android:id="@+id/textViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="30dp"
-        android:text="Wprowadź ID pacjenta"/>
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:text="Wprowadź ID pacjenta"
+        android:textColor="@color/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/EtID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animation_view" />
 
 
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
