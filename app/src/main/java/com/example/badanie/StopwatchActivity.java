@@ -93,7 +93,7 @@ public class StopwatchActivity extends AppCompatActivity {
     @OnClick(R.id.close)
     void onClickClose(View view) {
 
-        for(int i=count;i<tasks.size();i++)
+        for(int i=count+1;i<tasks.size();i++)
         {
             tvSaveTimeLap.append("Zad " + String.valueOf(i+1)
                     + "   " + "00:00:00" + "\n");
