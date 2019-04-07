@@ -93,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < files.length; i++) {
-
-
+            
             paths.add(files[i].getName());
             File fileToGet = new File(fileDirectory, paths.get(i).toString());
             try {
