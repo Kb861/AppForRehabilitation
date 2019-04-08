@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < files.length; i++) {
-            
+
             paths.add(files[i].getName());
             File fileToGet = new File(fileDirectory, paths.get(i).toString());
             try {
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
-                Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -120,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
+
 
         }
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-
+        Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
     }
 
 
