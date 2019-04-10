@@ -95,8 +95,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
         for(int i=count+1;i<tasks.size();i++)
         {
-            tvSaveTimeLap.append("Zad " + String.valueOf(i+1)
-                    + "   " + "00:00:00" + "\n");
+            tvSaveTimeLap.append("00:00:00" + "\n");
         }
         if (Chrono != null) {
 
@@ -129,7 +128,7 @@ public class StopwatchActivity extends AppCompatActivity {
         }
         //we just simply copy the current text of tv_timer and append it to et_laps
 
-       et_laps.append("M   " + String.valueOf(mLapCounter++)
+       et_laps.append("M " + String.valueOf(mLapCounter++)
                 + "   " + TextViewTime.getText() + "\n");
 
         //scroll to the bottom of et_laps
@@ -150,8 +149,7 @@ public class StopwatchActivity extends AppCompatActivity {
         readData();
         TVName.setText(tasks.get(0));
         String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-        tvSaveTimeLap.append("Zad " + String.valueOf(count+1)
-                + "   " + timeStamp + "\n");
+        tvSaveTimeLap.append(timeStamp + "\n");
 
 
         btn_Back.setOnClickListener(new View.OnClickListener() {
@@ -185,8 +183,7 @@ public class StopwatchActivity extends AppCompatActivity {
                 taskTime.add(task);
                 if (count < tasks.size()) {
                     TVName.setText(tasks.get(count));
-                    tvSaveTimeLap.append("Zad " + String.valueOf(count+1)
-                    + "   " + TextViewTime.getText() + "\n");
+                    tvSaveTimeLap.append(TextViewTime.getText() + "\n");
                 }
                 if (count == tasks.size()) {
                     if (Chrono != null) {
