@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader br = new BufferedReader(new FileReader(fileToGet));
                 String line;
                 while ((line = br.readLine()) != null) {
-                    if (line.length() > 8) {
+                    if (line.length() > 10) {
                         line = line.substring(8);
                         writer.append(line);
                         writer.append(";");
