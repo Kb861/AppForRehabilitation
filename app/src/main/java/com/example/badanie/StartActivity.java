@@ -43,8 +43,6 @@ public class StartActivity extends AppCompatActivity {
             bundle.putString("KEY_ID", Id);
             intent.putExtras(bundle);
             startActivity(intent);
-
-
         } else {
             Toast.makeText(StartActivity.this, "Należy wprowadzić ID użytkownika!", Toast.LENGTH_SHORT).show();
 

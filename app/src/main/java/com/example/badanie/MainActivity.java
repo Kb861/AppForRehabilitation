@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
 
                         writer.append(line);
                         writer.append(";");
-
                 }
 
             } catch (FileNotFoundException e) {

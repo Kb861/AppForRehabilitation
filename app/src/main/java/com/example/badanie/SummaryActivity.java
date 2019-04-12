@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -103,10 +105,38 @@ public class SummaryActivity extends AppCompatActivity {
         tasks_id.setText(IdText);
         EtNotes.setText(text);
         tasks.setText(ReqText);
-        EtNotes.setOnFocusChangeListener(onFocusChangeListener);
+        View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (EtNotes.length() == 0) {
+                    ((EditText) view).setSelection(0);
+                }
+                else
+                {
+                    ((EditText) view).setSelection(14);
+                }
+            }
+        };
+        EtNotes.setOnKeyListener(new View.OnKeyListener()
+        {
+
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
+                {
+                    // code to hide the soft keyboard
+                    InputMethodManager imm = (InputMethodManager) getSystemService(
+                            Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
+                }
+                return true;
+            }
+        });
 
 
     }
+
 
 
     @Override
@@ -117,18 +147,7 @@ public class SummaryActivity extends AppCompatActivity {
     /**
      * Set pointer to text in edittext.
      */
-    View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
-        @Override
-        public void onFocusChange(View view, boolean b) {
-            if (EtNotes.length() == 0) {
-                ((EditText) view).setSelection(0);
-            }
-            else
-            {
-                ((EditText) view).setSelection(14);
-            }
-        }
-    };
+
 
     private void Save(String id, String dane, String dane2) {
         try {
