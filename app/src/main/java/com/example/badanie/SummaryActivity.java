@@ -105,7 +105,7 @@ public class SummaryActivity extends AppCompatActivity {
         tasks_id.setText(IdText);
         EtNotes.setText(text);
         tasks.setText(ReqText);
-        View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
+        /*View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if (EtNotes.length() == 0) {
@@ -116,7 +116,7 @@ public class SummaryActivity extends AppCompatActivity {
                     ((EditText) view).setSelection(14);
                 }
             }
-        };
+        };*/
         EtNotes.setOnKeyListener(new View.OnKeyListener()
         {
 
