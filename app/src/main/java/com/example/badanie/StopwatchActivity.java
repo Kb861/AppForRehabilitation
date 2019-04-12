@@ -99,7 +99,7 @@ public class StopwatchActivity extends AppCompatActivity {
         builder.setMessage("Czy na pewno chcesz zakończyć?")
                 .setCancelable(false)
 
-                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         for(int i=count+1;i<tasks.size();i++)
                         {
@@ -128,7 +128,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
                     }
                 });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User cancelled the dialog
             }
