@@ -2,10 +2,12 @@ package com.example.badanie;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -93,30 +95,48 @@ public class StopwatchActivity extends AppCompatActivity {
     @OnClick(R.id.close)
     void onClickClose(View view) {
 
-        for(int i=count+1;i<tasks.size();i++)
-        {
-            tvSaveTimeLap.append("00:00:00" + "\n");
-        }
-        if (Chrono != null) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Czy na pewno chcesz zakończyć?")
+                .setCancelable(false)
 
-            Chrono.stop();
-            ThreadChrono.interrupt();
-            ThreadChrono = null;
-            Chrono = null;
-        }
-        Intent intent = new Intent(this, SummaryActivity.class);
-        Bundle bundle = new Bundle();
-        String allLaps = et_laps.getText().toString();
-        bundle.putString("KEY", allLaps);
-        intent.putExtras(bundle);
-        String Request = tvSaveTimeLap.getText().toString();
-        bundle.putString("KEY_ZAD", Request);
-        intent.putExtras(bundle);
-        Bundle dataFromStartActivity = getIntent().getExtras();
-        String Id = dataFromStartActivity.getString("KEY_ID");
-        bundle.putString("KEY_ID", Id);
-        intent.putExtras(bundle);
-        startActivity(intent);
+                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        for(int i=count+1;i<tasks.size();i++)
+                        {
+                            tvSaveTimeLap.append("00:00:00" + "\n");
+                        }
+                        if (Chrono != null) {
+
+                            Chrono.stop();
+                            ThreadChrono.interrupt();
+                            ThreadChrono = null;
+                            Chrono = null;
+                        }
+                        Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
+                        Bundle bundle = new Bundle();
+                        String allLaps = et_laps.getText().toString();
+                        bundle.putString("KEY", allLaps);
+                        intent.putExtras(bundle);
+                        String Request = tvSaveTimeLap.getText().toString();
+                        bundle.putString("KEY_ZAD", Request);
+                        intent.putExtras(bundle);
+                        Bundle dataFromStartActivity = getIntent().getExtras();
+                        String Id = dataFromStartActivity.getString("KEY_ID");
+                        bundle.putString("KEY_ID", Id);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
+                    }
+                });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+
 
     }
 
