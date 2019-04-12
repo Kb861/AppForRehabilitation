@@ -105,21 +105,8 @@ public class SummaryActivity extends AppCompatActivity {
         tasks_id.setText(IdText);
         EtNotes.setText(text);
         tasks.setText(ReqText);
-        /*View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if (EtNotes.length() == 0) {
-                    ((EditText) view).setSelection(0);
-                }
-                else
-                {
-                    ((EditText) view).setSelection(14);
-                }
-            }
-        };*/
         EtNotes.setOnKeyListener(new View.OnKeyListener()
         {
-
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event)
             {
@@ -147,7 +134,18 @@ public class SummaryActivity extends AppCompatActivity {
     /**
      * Set pointer to text in edittext.
      */
-
+    View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View view, boolean b) {
+            if (EtNotes.length() == 0) {
+                ((EditText) view).setSelection(0);
+            }
+            else
+            {
+                ((EditText) view).setSelection(14);
+            }
+        }
+    };
 
     private void Save(String id, String dane, String dane2) {
         try {
