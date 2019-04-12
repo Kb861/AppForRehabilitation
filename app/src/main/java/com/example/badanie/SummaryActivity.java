@@ -125,7 +125,7 @@ public class SummaryActivity extends AppCompatActivity {
             }
             else
             {
-                ((EditText) view).setSelection(16);
+                ((EditText) view).setSelection(14);
             }
         }
     };
