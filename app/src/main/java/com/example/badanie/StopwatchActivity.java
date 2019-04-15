@@ -274,10 +274,6 @@ public class StopwatchActivity extends AppCompatActivity {
         try {
             while((line=reader.readLine()) !=null){
                 tasks.add(line);
-                for(int i = 0; i<tasks.size();i++)
-                {
-                    tasks.set(i,"Z"+i);
-                }
             }
         } catch (IOException e) {
             e.printStackTrace();
