@@ -102,9 +102,16 @@ public class MainActivity extends AppCompatActivity {
                 String line;
                 while ((line = br.readLine()) != null) {
 
+
+                        if(line.length()>13)
+                        {
+                        line=line.substring(6);
                         writer.append(line);
                         writer.append(";");
-
+                        }
+                        else
+                        {writer.append(line);
+                            writer.append(";");}
                 }
 
             } catch (FileNotFoundException e) {
