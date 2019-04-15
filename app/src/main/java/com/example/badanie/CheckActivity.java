@@ -32,12 +32,9 @@ public class CheckActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check);
         ButterKnife.bind(this);
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item("Kamera termowizyjna"));
-        itemList.add(new Item("Kamera TOF"));
-        itemList.add(new Item("System BTS"));
-        itemList.add(new Item("Opaska piersiowa"));
+        itemList.add(new Item("Kamera wizyjna"));
         itemList.add(new Item("Empatica"));
-
+        itemList.add(new Item("Termo - referencja twarzy"));
 
         RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
