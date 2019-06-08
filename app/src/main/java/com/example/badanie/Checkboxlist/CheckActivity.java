@@ -1,4 +1,4 @@
-package com.example.badanie;
+package com.example.badanie.Checkboxlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.example.badanie.Adapters.ItemAdapter;
 import com.example.badanie.Models.Item;
+import com.example.badanie.R;
+import com.example.badanie.StopwatchActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,6 @@ public class CheckActivity extends AppCompatActivity {
     RecyclerView my_recycler_view;
     private RecyclerView.Adapter mAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,6 @@ public class CheckActivity extends AppCompatActivity {
         itemList.add(new Item("Przygotowanie badania Zebris; zmiana pomieszczenia"));
         itemList.add(new Item("Badanie kręgosłupa Zebris"));
         itemList.add(new Item("Przygotowanie badania w PS; BTS"));
-
 
         RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -60,6 +60,7 @@ public class CheckActivity extends AppCompatActivity {
                 count = count + 1;
             }
         }
+
         if(count==stList.size())
         {Intent intent = new Intent(CheckActivity.this, StopwatchActivity.class);
             Bundle bundle = new Bundle();

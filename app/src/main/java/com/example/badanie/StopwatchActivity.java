@@ -15,6 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.badanie.Models.Chronometer;
 import com.example.badanie.Models.Query;
 
 import java.io.BufferedReader;
@@ -77,7 +78,7 @@ public class StopwatchActivity extends AppCompatActivity {
     Chronometer Chrono;
     Thread ThreadChrono;
     Context Context;
-    //lista dla czasu poszczególnych zadań
+
     public List<Query> taskTime=new ArrayList<>();
 
     @OnClick(R.id.btn_Back)
@@ -128,7 +129,6 @@ public class StopwatchActivity extends AppCompatActivity {
                 });
         builder.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
             }
         });
         AlertDialog alert = builder.create();
@@ -142,14 +142,12 @@ public class StopwatchActivity extends AppCompatActivity {
     void onClickNext(View view) {
         if (Chrono == null) {
             Toast.makeText(Context, "nic", Toast.LENGTH_SHORT).show();
-            return; //do nothing!
+            return;
         }
-        //we just simply copy the current text of tv_timer and append it to et_laps
 
        et_laps.append("M " + String.valueOf(mLapCounter++)
                 + "   " + TextViewTime.getText() + "\n");
 
-        //scroll to the bottom of et_laps
         sv_lap.post(new Runnable() {
             @Override
             public void run() {
@@ -214,8 +212,8 @@ public class StopwatchActivity extends AppCompatActivity {
                     Intent intent = new Intent(StopwatchActivity.this, SummaryActivity.class);
                     Bundle bundle = new Bundle();
 
-                    String wpisanyTekst = et_laps.getText().toString();
-                    bundle.putString("KEY", wpisanyTekst);
+                    String text = et_laps.getText().toString();
+                    bundle.putString("KEY", text);
                     intent.putExtras(bundle);
                     String Request = tvSaveTimeLap.getText().toString();
                     bundle.putString("KEY_ZAD", Request);
@@ -224,7 +222,6 @@ public class StopwatchActivity extends AppCompatActivity {
                     String Id = dataFromStartActivity.getString("KEY_ID");
                     bundle.putString("KEY_ID", Id);
                     intent.putExtras(bundle);
-
                     startActivity(intent);
                 }
 
@@ -234,34 +231,20 @@ public class StopwatchActivity extends AppCompatActivity {
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-
-        //starttime
         if (Chrono == null) {
-            //instantiate the chronometer
+
             Chrono = new Chronometer(Context);
-            //run the chronometer on a separate thread
             ThreadChrono = new Thread(Chrono);
             ThreadChrono.start();
-
-            //start the chronometer!
             Chrono.start();
-
-            //clear the perilously populated et_laps
-            et_laps.setText(""); //empty string!
-
-            //reset the lap counter
+            et_laps.setText("");
             mLapCounter = 1;
         }
-
     }
     @Override
     public void onBackPressed() {
-        // Do Here what ever you want do on back press;
     }
 
-
-
-    //metoda wczytuje listę zadań (plik.csv)
     public List<String> tasks = new ArrayList<>();
     private void readData() {
         InputStream is=getResources().openRawResource(R.raw.dane);

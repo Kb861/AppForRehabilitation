@@ -1,14 +1,14 @@
-package com.example.badanie;
+package com.example.badanie.Models;
 
 import android.content.Context;
+
+import com.example.badanie.StopwatchActivity;
 
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Chronometer implements Runnable {
-
-
 
     Context mContext;
     long mStartTime;

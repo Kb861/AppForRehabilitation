@@ -1,4 +1,4 @@
-package com.example.badanie;
+package com.example.badanie.Main;
 
 import android.Manifest;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.badanie.R;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,9 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 String line;
                 while ((line = br.readLine()) != null) {
 
-
                         if(line.length()>13)
                         {
                         line=line.substring(6);
@@ -122,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
-
         }
 
         try {
@@ -132,13 +130,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
         Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
     }
 
 
     public List<String> tasks = new ArrayList<>();
-
     private void readData() {
         InputStream is = getResources().openRawResource(R.raw.dane);
         BufferedReader reader = new BufferedReader(
@@ -167,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
-        } else { //permission is automatically granted on sdk<23 upon installation
+        } else {
         }
     }
 
@@ -179,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         isWriteStoragePermissionGranted();
         ButterKnife.bind(this);
         readData();
-
     }
 
     @Override

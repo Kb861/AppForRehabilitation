@@ -21,11 +21,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.badanie.Main.MainActivity;
+import com.example.badanie.Main.StartActivity;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -66,7 +67,7 @@ public class SummaryActivity extends AppCompatActivity {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 3);
             }
-        } else { //permission is automatically granted on sdk<23 upon installation
+        } else {
         }
     }
 
@@ -77,7 +78,7 @@ public class SummaryActivity extends AppCompatActivity {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
-        } else { //permission is automatically granted on sdk<23 upon installation
+        } else {
         }
     }
     @OnClick(R.id.btnHome)
@@ -111,7 +112,6 @@ public class SummaryActivity extends AppCompatActivity {
             {
                 if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
                 {
-                    // code to hide the soft keyboard
                     InputMethodManager imm = (InputMethodManager) getSystemService(
                             Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
@@ -120,19 +120,12 @@ public class SummaryActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
-
 
     @Override
     public void onBackPressed() {
-        // Do Here what ever you want do on back press;
     }
 
-    /**
-     * Set pointer to text in edittext.
-     */
     View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
         @Override
         public void onFocusChange(View view, boolean b) {
@@ -175,14 +168,9 @@ public class SummaryActivity extends AppCompatActivity {
             String entry_req = tasks.getText().toString();
             String entry_id = tasks_id.getText().toString();
             Save(entry_id,entry,entry_req);
-           // Intent intent = new Intent(this, StartActivity.class);
-            //Bundle bundle = new Bundle();
-            //intent.putExtras(bundle);
             ShowBox("StartActivity");
-            //startActivity(intent);
-
-
     }
+
     public void ShowBox(final String name){
         epicDialog.setContentView(R.layout.dialog_box);
         closedialog=(ImageView) epicDialog.findViewById(R.id.close_box) ;
