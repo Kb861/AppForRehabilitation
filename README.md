@@ -1,2 +1,2 @@
 # AppForRehabilitation
-Aplikacja do zapisywania wyników badań.
+MOBILNA KARTA POMIAROWA
