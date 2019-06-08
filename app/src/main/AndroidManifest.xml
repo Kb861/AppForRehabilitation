@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main.StartActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Main.StartActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Checkboxlist.CheckActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SummaryActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SummaryActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Main.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -167,7 +167,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     private void ShowBox(final String name){
         epicDialog.setContentView(R.layout.dialog_box);
-        ImageView closedialog = (ImageView) epicDialog.findViewById(R.id.close_box);
+        ImageView closedialog = epicDialog.findViewById(R.id.close_box);
         closedialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

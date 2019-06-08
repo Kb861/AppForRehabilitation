@@ -6,15 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.badanie.Adapters.ItemAdapter;
 import com.example.badanie.Models.Item;
 import com.example.badanie.R;
 import com.example.badanie.StopwatchActivity;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
