@@ -89,13 +89,12 @@ public class MainActivity extends AppCompatActivity {
         File fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM + "/results");
         Log.d("Files", "Size: " + files.length);
         List<String> paths = new ArrayList<>();
-        List<String> allTimes = new ArrayList<>();
 
 
         for (int i = 0; i < files.length; i++) {
 
             paths.add(files[i].getName());
-            File fileToGet = new File(fileDirectory, paths.get(i).toString());
+            File fileToGet = new File(fileDirectory, paths.get(i));
             try {
                 writer.append("\n");
                 BufferedReader br = new BufferedReader(new FileReader(fileToGet));
@@ -133,29 +132,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "Plik zbiorczy został utworzony", Toast.LENGTH_SHORT).show();
     }
 
-
-    public List<String> tasks = new ArrayList<>();
-    private void readData() {
-        InputStream is = getResources().openRawResource(R.raw.dane);
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8"))
-        );
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null) {
-                tasks.add(line);
-
-
-                Log.d("MyActivity", "Just created:" + line);
-            }
-        } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading data file on line" + line, e);
-            e.printStackTrace();
-        }
-
-    }
-
-
     private void isWriteStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -163,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
-        } else {
         }
     }
 
@@ -174,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         isWriteStoragePermissionGranted();
         ButterKnife.bind(this);
-        readData();
     }
 
     @Override
@@ -182,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public int noTasks=0;
+    private int noTasks=0;
     private void readnumberofTasks() {
         InputStream is=getResources().openRawResource(R.raw.dane);
         BufferedReader reader = new BufferedReader(

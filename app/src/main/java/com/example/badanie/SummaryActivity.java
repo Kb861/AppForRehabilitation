@@ -29,14 +29,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-/**
- * Created by patry on 18.03.2019.
- */
 
 public class SummaryActivity extends AppCompatActivity {
 
@@ -56,8 +53,7 @@ public class SummaryActivity extends AppCompatActivity {
     @BindView(R.id.btnHome)
     Button btnHome;
 
-    Dialog epicDialog;
-    ImageView closedialog;
+    private Dialog epicDialog;
 
 
     private void isReadStoragePermissionGranted() {
@@ -67,7 +63,6 @@ public class SummaryActivity extends AppCompatActivity {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 3);
             }
-        } else {
         }
     }
 
@@ -78,7 +73,6 @@ public class SummaryActivity extends AppCompatActivity {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
-        } else {
         }
     }
     @OnClick(R.id.btnHome)
@@ -171,19 +165,19 @@ public class SummaryActivity extends AppCompatActivity {
             ShowBox("StartActivity");
     }
 
-    public void ShowBox(final String name){
+    private void ShowBox(final String name){
         epicDialog.setContentView(R.layout.dialog_box);
-        closedialog=(ImageView) epicDialog.findViewById(R.id.close_box) ;
+        ImageView closedialog = (ImageView) epicDialog.findViewById(R.id.close_box);
         closedialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name=="StartActivity")
+                if(Objects.equals(name, "StartActivity"))
                 {Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                     Bundle bundle = new Bundle();
                     intent.putExtras(bundle);
                     startActivity(intent);
                     epicDialog.dismiss();}
-                if(name=="MainActivity")
+                if(Objects.equals(name, "MainActivity"))
                 {Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     Bundle bundle = new Bundle();
                     intent.putExtras(bundle);

@@ -19,10 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by patry on 22.03.2019.
- */
-
 public class CheckActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_show)

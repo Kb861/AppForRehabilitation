@@ -13,10 +13,6 @@ import com.example.badanie.R;
 
 import java.util.List;
 
-/**
- * Created by patry on 22.03.2019.
- */
-
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     private final List<Item> stList;

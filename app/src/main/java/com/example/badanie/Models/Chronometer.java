@@ -4,23 +4,17 @@ import android.content.Context;
 
 import com.example.badanie.StopwatchActivity;
 
-import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Chronometer implements Runnable {
 
-    Context mContext;
-    long mStartTime;
-    boolean mIsRunning;
+    private final Context mContext;
+    private long mStartTime;
+    private boolean mIsRunning;
 
     public Chronometer(Context context) {
         mContext = context;
-    }
-
-    public Chronometer(Context context, long startTime) {
-        this(context);
-        mStartTime = startTime;
     }
 
     public void start() {
@@ -32,14 +26,6 @@ public class Chronometer implements Runnable {
 
     public void stop() {
         mIsRunning = false;
-    }
-
-    public boolean isRunning() {
-        return mIsRunning;
-    }
-
-    public long getStartTime() {
-        return mStartTime;
     }
 
     @Override

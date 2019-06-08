@@ -2,13 +2,9 @@ package com.example.badanie.Models;
 
 import java.io.Serializable;
 
-/**
- * Created by patry on 22.03.2019.
- */
-
 public class Item implements Serializable {
 
-    private String name;
+    private final String name;
     private boolean isSelected;
 
     public Item(String name) {

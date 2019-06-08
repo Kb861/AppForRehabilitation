@@ -32,10 +32,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by patry on 17.03.2019.
- */
-
 public class StopwatchActivity extends AppCompatActivity {
     public void updateTimerText(final String timeAsText) {
         runOnUiThread(new Runnable() {
@@ -73,13 +69,13 @@ public class StopwatchActivity extends AppCompatActivity {
     ImageView close;
 
     private int count=0;
-    int mLapCounter = 1;
+    private int mLapCounter = 1;
 
-    Chronometer Chrono;
-    Thread ThreadChrono;
-    Context Context;
+    private Chronometer Chrono;
+    private Thread ThreadChrono;
+    private Context Context;
 
-    public List<Query> taskTime=new ArrayList<>();
+    private final List<Query> taskTime=new ArrayList<>();
 
     @OnClick(R.id.btn_Back)
     void onClick(View view) {
@@ -245,7 +241,7 @@ public class StopwatchActivity extends AppCompatActivity {
     public void onBackPressed() {
     }
 
-    public List<String> tasks = new ArrayList<>();
+    private final List<String> tasks = new ArrayList<>();
     private void readData() {
         InputStream is=getResources().openRawResource(R.raw.dane);
         BufferedReader reader = new BufferedReader(

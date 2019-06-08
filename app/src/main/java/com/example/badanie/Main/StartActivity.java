@@ -29,7 +29,6 @@ public class StartActivity extends AppCompatActivity {
 
         String value = EtID.getText().toString();
         if (!value.isEmpty()) {
-            int finalValue = Integer.parseInt(value);
             Intent intent = new Intent(this, CheckActivity.class);
             Bundle bundle = new Bundle();
             intent.putExtras(bundle);
@@ -52,7 +51,7 @@ public class StartActivity extends AppCompatActivity {
         SupportActionBarBack();
 
     }
-    public void SupportActionBarBack() {
+    private void SupportActionBarBack() {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
