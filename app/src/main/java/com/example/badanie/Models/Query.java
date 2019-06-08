@@ -1,6 +1,6 @@
-package com.example.badanie;
+package com.example.badanie.Models;
 
-class Query {
+public class Query {
 
     public String getTime() {
         return time;

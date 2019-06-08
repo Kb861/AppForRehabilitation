@@ -57,7 +57,6 @@ public class SummaryActivity extends AppCompatActivity {
 
     Dialog epicDialog;
     ImageView closedialog;
-    Context contex;
 
 
     private void isReadStoragePermissionGranted() {

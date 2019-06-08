@@ -6,6 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.badanie.Adapters.ItemAdapter;
+import com.example.badanie.Models.Item;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +36,12 @@ public class CheckActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check);
         ButterKnife.bind(this);
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item("Kamera wizyjna"));
         itemList.add(new Item("Empatica"));
-        itemList.add(new Item("Termo - referencja twarzy"));
+        itemList.add(new Item("Termo: referencja twarzy"));
+        itemList.add(new Item("Przygotowanie badania Zebris; zmiana pomieszczenia"));
+        itemList.add(new Item("Badanie kręgosłupa Zebris"));
+        itemList.add(new Item("Przygotowanie badania w PS; BTS"));
+
 
         RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);

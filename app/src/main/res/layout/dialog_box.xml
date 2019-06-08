@@ -42,7 +42,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Kamera wizyjna \n Kamera termowizyjna \n Kamera TOF \n Empatica \n Czujniki IMU \n Stabilografia \n BTS
+        android:text="Kamera wizyjna \n Kamera termowizyjna \n Empatica \n Kamera TOF \n Czujniki IMU \n Stabilografia \n BTS
 "
         android:textAlignment="center"
         android:textColor="@android:color/white"

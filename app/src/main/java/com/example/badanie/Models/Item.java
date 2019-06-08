@@ -1,4 +1,4 @@
-package com.example.badanie;
+package com.example.badanie.Models;
 
 import java.io.Serializable;
 

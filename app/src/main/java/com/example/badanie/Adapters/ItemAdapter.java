@@ -1,13 +1,15 @@
-package com.example.badanie;
+package com.example.badanie.Adapters;
 
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.example.badanie.Models.Item;
+import com.example.badanie.R;
 
 import java.util.List;
 
@@ -56,8 +58,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
-
-
             chkSelected = itemView
                     .findViewById(R.id.chkSelected);
         }
